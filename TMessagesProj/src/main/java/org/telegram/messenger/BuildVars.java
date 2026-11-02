@@ -40,6 +40,10 @@ public class BuildVars {
     // You can use this flag to disable Google Play Billing (If you're making fork and want it to be in Google Play)
     public static boolean IS_BILLING_UNAVAILABLE = false;
 
+    // [patch G2] 自用构建：永久关闭官方广告位（频道内 sponsored message / 会话列表推荐频道）。
+    // 置 true 后不会发起 messages.getSponsoredMessages / contacts.getSponsoredPeers 请求，也不渲染对应内容。
+    public static final boolean HIDE_SPONSORED = true;
+
     // works only on official app ids, disable on your forks
     public static boolean SUPPORTS_PASSKEYS = true;
     // the second main tab: News, or Contacts as before them

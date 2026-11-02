@@ -25,6 +25,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -45,6 +46,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
@@ -117,6 +119,8 @@ import com.google.android.play.core.integrity.IntegrityManagerFactory;
 import com.google.android.play.core.integrity.IntegrityTokenRequest;
 import com.google.android.play.core.integrity.IntegrityTokenResponse;
 import com.google.firebase.pnv.VerificationSupportResult;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -145,6 +149,7 @@ import org.telegram.messenger.PushListenerController;
 import org.telegram.messenger.R;
 import org.telegram.messenger.SRPHelper;
 import org.telegram.messenger.SharedConfig;
+import org.telegram.messenger.TelegramQRCodeWriter;
 import org.telegram.messenger.UserConfig;
 import org.telegram.messenger.Utilities;
 import org.telegram.tgnet.ConnectionsManager;
@@ -267,7 +272,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
             VIEW_CODE_FRAGMENT_SMS = 15,
             VIEW_CODE_WORD = 16,
             VIEW_CODE_PHRASE = 17,
-            VIEW_PAY = 18;
+            VIEW_PAY = 18,
+            VIEW_QR = 19; // [patch G1-a] 新设备扫码登录页
 
     public final static int COUNTRY_STATE_NOT_SET_OR_VALID = 0,
             COUNTRY_STATE_EMPTY = 1,
@@ -315,7 +321,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
             VIEW_CODE_FRAGMENT_SMS,
             VIEW_CODE_WORD,
             VIEW_CODE_PHRASE,
-            VIEW_PAY
+            VIEW_PAY,
+            VIEW_QR
     })
     private @interface ViewNumber {}
 
@@ -328,7 +335,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
 
     @ViewNumber
     private int currentViewNum;
-    private final SlideView[] views = new SlideView[19];
+    private final SlideView[] views = new SlideView[20];
     private CustomPhoneKeyboardView keyboardView;
     private ValueAnimator keyboardAnimator;
     private boolean paid;
@@ -708,6 +715,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
         views[VIEW_CODE_WORD] = new LoginActivityPhraseView(context, AUTH_TYPE_WORD);
         views[VIEW_CODE_PHRASE] = new LoginActivityPhraseView(context, AUTH_TYPE_PHRASE);
         views[VIEW_PAY] = new LoginPayView(context);
+        views[VIEW_QR] = new LoginActivityQrView(context);
 
         for (int a = 0; a < views.length; a++) {
             views[a].setVisibility(a == 0 ? View.VISIBLE : View.GONE);
@@ -937,6 +945,10 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
     @Override
     public void onPause() {
         super.onPause();
+        if (views[VIEW_QR] != null) {
+            // [patch G1-a] 页面不可见时停止二维码轮询，避免后台持续请求
+            ((LoginActivityQrView) views[VIEW_QR]).stopPolling();
+        }
         if (newAccount) {
             ConnectionsManager.getInstance(currentAccount).setAppPaused(true, false);
         }
@@ -1165,6 +1177,12 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
             if (invoked) {
                 views[currentViewNum].onBackPressed(true);
                 setPage(VIEW_ADD_EMAIL, true, null, true);
+            }
+        } else if (currentViewNum == VIEW_QR) {
+            // [patch G1-a] 从二维码页返回手机号页
+            if (invoked) {
+                views[currentViewNum].onBackPressed(true);
+                setPage(VIEW_PHONE_INPUT, true, null, true);
             }
         } else if (invoked) {
             if (views[currentViewNum].onBackPressed(true)) {
@@ -2007,6 +2025,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
         @CountryState
         private int countryState = COUNTRY_STATE_NOT_SET_OR_VALID;
         private CountrySelectActivity.Country currentCountry;
+        private TextView qrLoginButton; // [patch G1-a] 扫码登录入口
 
         private ArrayList<CountrySelectActivity.Country> countriesArray = new ArrayList<>();
         private HashMap<String, List<CountrySelectActivity.Country>> codesMap = new HashMap<>();
@@ -2539,6 +2558,25 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                 addView(bottomSpacer, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT));
             }
 
+            // [patch G1-a] 手机号登录页底部加「通过二维码登录」入口（不改变官方原有布局与流程）
+            if (activityMode == MODE_LOGIN) {
+                qrLoginButton = new TextView(context);
+                qrLoginButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
+                qrLoginButton.setTypeface(AndroidUtilities.bold());
+                qrLoginButton.setText(getString(R.string.LoginQrEntry));
+                qrLoginButton.setGravity(Gravity.CENTER);
+                qrLoginButton.setPadding(AndroidUtilities.dp(16), AndroidUtilities.dp(12), AndroidUtilities.dp(16), AndroidUtilities.dp(12));
+                qrLoginButton.setContentDescription(getString(R.string.LoginQrEntry));
+                qrLoginButton.setOnClickListener(v -> {
+                    if (getParentActivity() == null) {
+                        return;
+                    }
+                    AndroidUtilities.hideKeyboard(phoneField);
+                    setPage(VIEW_QR, true, null, false);
+                });
+                addView(qrLoginButton, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL, 32, 12, 32, 0));
+            }
+
             HashMap<String, String> languageMap = new HashMap<>();
 
             try {
@@ -2740,6 +2778,9 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
 
             phoneOutlineView.updateColor();
             countryOutlineView.updateColor();
+            if (qrLoginButton != null) {
+                qrLoginButton.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlueText4));
+            }
         }
 
         @Override
@@ -10695,5 +10736,332 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
         }
         clearSheets();
         parentLayout = null;
+    }
+
+    // [patch G1-a] 新设备「扫码登录」页：auth.exportLoginToken → 渲染 tg://login?token=… 二维码
+    //                                                → 轮询直到旧设备确认（loginTokenSuccess）→ onAuthSuccess
+    public class LoginActivityQrView extends SlideView {
+
+        private static final int QR_POLL_INTERVAL = 2000;
+        private static final int QR_MAX_RETRY_DELAY = 16000;
+        private static final int QR_REQUEST_FLAGS = ConnectionsManager.RequestFlagFailOnServerErrors
+                | ConnectionsManager.RequestFlagWithoutLogin
+                | ConnectionsManager.RequestFlagTryDifferentDc
+                | ConnectionsManager.RequestFlagEnableUnauthorized;
+
+        private final ImageView qrImageView;
+        private final TextView titleView;
+        private final TextView hintView;
+        private final TextView statusView;
+        private final TextView copyLinkView;
+
+        private final Runnable pollRunnable = () -> exportLoginToken();
+        private Bitmap qrBitmap;
+        private String currentLink;
+        private String lastEncodedToken;
+        private boolean polling;
+        private boolean destroyed;
+        private int currentRequestId = -1;
+        private int retryCount;
+
+        public LoginActivityQrView(Context context) {
+            super(context);
+            setOrientation(VERTICAL);
+            setGravity(Gravity.CENTER);
+
+            titleView = new TextView(context);
+            titleView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
+            titleView.setTypeface(AndroidUtilities.bold());
+            titleView.setText(getString(R.string.LoginQrTitle));
+            titleView.setGravity(Gravity.CENTER);
+            addView(titleView, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL, 32, 0, 32, 0));
+
+            hintView = new TextView(context);
+            hintView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
+            hintView.setLineSpacing(dp(2), 1.0f);
+            hintView.setGravity(Gravity.CENTER);
+            hintView.setText(getString(R.string.LoginQrHint));
+            addView(hintView, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL, 32, 10, 32, 0));
+
+            FrameLayout qrContainer = new FrameLayout(context);
+            GradientDrawable qrBackground = new GradientDrawable();
+            qrBackground.setColor(Color.WHITE);
+            qrBackground.setCornerRadius(AndroidUtilities.dp(12));
+            qrContainer.setBackground(qrBackground);
+            final int qrPadding = AndroidUtilities.dp(12);
+            qrContainer.setPadding(qrPadding, qrPadding, qrPadding, qrPadding);
+            addView(qrContainer, LayoutHelper.createLinear(AndroidUtilities.dp(220), AndroidUtilities.dp(220), Gravity.CENTER_HORIZONTAL, 32, 20, 32, 0));
+
+            qrImageView = new ImageView(context);
+            qrImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            qrContainer.addView(qrImageView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT));
+
+            statusView = new TextView(context);
+            statusView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
+            statusView.setGravity(Gravity.CENTER);
+            addView(statusView, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL, 32, 16, 32, 0));
+
+            copyLinkView = new TextView(context);
+            copyLinkView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
+            copyLinkView.setTypeface(AndroidUtilities.bold());
+            copyLinkView.setText(getString(R.string.LoginQrCopyLink));
+            copyLinkView.setGravity(Gravity.CENTER);
+            copyLinkView.setPadding(AndroidUtilities.dp(16), AndroidUtilities.dp(10), AndroidUtilities.dp(16), AndroidUtilities.dp(10));
+            copyLinkView.setOnClickListener(v -> copyLoginLink());
+            addView(copyLinkView, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL, 32, 8, 32, 0));
+
+            updateColors();
+            setStatus(getString(R.string.LoginQrConnecting));
+        }
+
+        @Override
+        public String getHeaderName() {
+            return getString(R.string.LoginQrHeader);
+        }
+
+        @Override
+        public boolean needBackButton() {
+            return true;
+        }
+
+        @Override
+        public void updateColors() {
+            titleView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
+            hintView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteGrayText6));
+            statusView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteGrayText));
+            copyLinkView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlueText4));
+        }
+
+        @Override
+        public void setParams(Bundle params, boolean restore) {
+            super.setParams(params, restore);
+            startPolling();
+        }
+
+        @Override
+        public void onShow() {
+            super.onShow();
+            startPolling();
+        }
+
+        @Override
+        public void onHide() {
+            super.onHide();
+            stopPolling();
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            startPolling();
+        }
+
+        @Override
+        public void onDestroyActivity() {
+            destroyed = true;
+            stopPolling();
+        }
+
+        @Override
+        public boolean onBackPressed(boolean force) {
+            stopPolling();
+            return true;
+        }
+
+        private void setStatus(String text) {
+            if (statusView != null) {
+                statusView.setText(text);
+            }
+        }
+
+        public void startPolling() {
+            if (destroyed || polling) {
+                return;
+            }
+            polling = true;
+            retryCount = 0;
+            scheduleNextPoll(0);
+        }
+
+        public void stopPolling() {
+            polling = false;
+            AndroidUtilities.cancelRunOnUIThread(pollRunnable);
+            if (currentRequestId >= 0) {
+                getConnectionsManager().cancelRequest(currentRequestId, true);
+                currentRequestId = -1;
+            }
+        }
+
+        private void scheduleNextPoll(long delay) {
+            AndroidUtilities.cancelRunOnUIThread(pollRunnable);
+            if (polling && !destroyed) {
+                AndroidUtilities.runOnUIThread(pollRunnable, delay);
+            }
+        }
+
+        private void exportLoginToken() {
+            if (!polling || destroyed || getParentActivity() == null) {
+                return;
+            }
+            TLRPC.TL_auth_exportLoginToken req = new TLRPC.TL_auth_exportLoginToken();
+            req.api_id = BuildVars.APP_ID;
+            req.api_hash = BuildVars.APP_HASH;
+            currentRequestId = getConnectionsManager().sendRequest(req, (response, error) -> AndroidUtilities.runOnUIThread(() -> {
+                currentRequestId = -1;
+                if (!polling || destroyed) {
+                    return;
+                }
+                handleLoginTokenResponse(response, error);
+            }), QR_REQUEST_FLAGS);
+        }
+
+        private void handleLoginTokenResponse(TLObject response, TLRPC.TL_error error) {
+            if (error != null) {
+                if (error.text != null && error.text.contains("SESSION_PASSWORD_NEEDED")) {
+                    openTwoStepVerificationPage();
+                } else {
+                    onPollError(error.text);
+                }
+                return;
+            }
+            if (response instanceof TLRPC.TL_auth_loginToken) {
+                TLRPC.TL_auth_loginToken loginToken = (TLRPC.TL_auth_loginToken) response;
+                retryCount = 0;
+                showQrCode(loginToken.token);
+                setStatus(getString(R.string.LoginQrWaiting));
+                scheduleNextPoll(QR_POLL_INTERVAL);
+            } else if (response instanceof TLRPC.TL_auth_loginTokenMigrateTo) {
+                importLoginToken((TLRPC.TL_auth_loginTokenMigrateTo) response);
+            } else if (response instanceof TLRPC.TL_auth_loginTokenSuccess) {
+                stopPolling();
+                onQrLoginSuccess(((TLRPC.TL_auth_loginTokenSuccess) response).authorization);
+            } else {
+                onPollError(null);
+            }
+        }
+
+        private void showQrCode(byte[] tokenBytes) {
+            if (tokenBytes == null) {
+                return;
+            }
+            final String encoded = Base64.encodeToString(tokenBytes, Base64.URL_SAFE | Base64.NO_WRAP);
+            if (encoded.equals(lastEncodedToken)) {
+                return;
+            }
+            final String link = "tg://login?token=" + encoded;
+            try {
+                HashMap<EncodeHintType, Object> hints = new HashMap<>();
+                hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.M);
+                hints.put(EncodeHintType.MARGIN, 0);
+                Bitmap bitmap = new TelegramQRCodeWriter().encode(link, 768, 768, hints, qrBitmap);
+                if (bitmap != null) {
+                    qrBitmap = bitmap;
+                    lastEncodedToken = encoded;
+                    currentLink = link;
+                    qrImageView.setImageBitmap(bitmap);
+                }
+            } catch (Exception e) {
+                FileLog.e(e);
+            }
+        }
+
+        // loginTokenMigrateTo：按 TDLib 的做法，把 importLoginToken 发到 token 所属 DC（而不是直接切主 DC）
+        private void importLoginToken(TLRPC.TL_auth_loginTokenMigrateTo migrate) {
+            if (migrate.token == null) {
+                onPollError(null);
+                return;
+            }
+            setStatus(getString(R.string.LoginQrMigrating));
+            TLRPC.TL_auth_importLoginToken req = new TLRPC.TL_auth_importLoginToken();
+            req.token = migrate.token;
+            currentRequestId = getConnectionsManager().sendRequest(req, (response, error) -> AndroidUtilities.runOnUIThread(() -> {
+                currentRequestId = -1;
+                if (!polling || destroyed) {
+                    return;
+                }
+                if (error != null) {
+                    onPollError(error.text);
+                    return;
+                }
+                if (response instanceof TLRPC.TL_auth_loginToken) {
+                    getConnectionsManager().setDefaultDatacenterId(migrate.dc_id);
+                    retryCount = 0;
+                    showQrCode(((TLRPC.TL_auth_loginToken) response).token);
+                    setStatus(getString(R.string.LoginQrWaiting));
+                    scheduleNextPoll(1000);
+                } else if (response instanceof TLRPC.TL_auth_loginTokenSuccess) {
+                    stopPolling();
+                    onQrLoginSuccess(((TLRPC.TL_auth_loginTokenSuccess) response).authorization);
+                } else {
+                    onPollError(null);
+                }
+            }), null, null, QR_REQUEST_FLAGS, migrate.dc_id, ConnectionsManager.ConnectionTypeGeneric, true);
+        }
+
+        private void onQrLoginSuccess(TLRPC.auth_Authorization authorization) {
+            if (authorization instanceof TLRPC.TL_auth_authorization) {
+                TLRPC.TL_auth_authorization auth = (TLRPC.TL_auth_authorization) authorization;
+                if (auth.user == null || getParentActivity() == null) {
+                    return;
+                }
+                onAuthSuccess(auth);
+            } else {
+                // 扫码只能登录已有账号；SignUpRequired 等异常情况给提示，不静默
+                setStatus(getString(R.string.LoginQrFailed));
+            }
+        }
+
+        private void openTwoStepVerificationPage() {
+            setStatus(getString(R.string.LoginQrTwoStep));
+            final TL_account.getPassword req = new TL_account.getPassword();
+            currentRequestId = getConnectionsManager().sendRequest(req, (response, error) -> AndroidUtilities.runOnUIThread(() -> {
+                currentRequestId = -1;
+                if (!polling || destroyed || getParentActivity() == null) {
+                    return;
+                }
+                stopPolling();
+                if (error == null && response instanceof TL_account.Password && currentViewNum == VIEW_QR) {
+                    TL_account.Password password = (TL_account.Password) response;
+                    final Bundle bundle = new Bundle();
+                    final SerializedData data = new SerializedData(password.getObjectSize());
+                    password.serializeToStream(data);
+                    bundle.putString("password", Utilities.bytesToHex(data.toByteArray()));
+                    setPage(VIEW_PASSWORD, true, bundle, false);
+                } else {
+                    setStatus(getString(R.string.LoginQrFailed));
+                }
+            }), ConnectionsManager.RequestFlagFailOnServerErrors | ConnectionsManager.RequestFlagWithoutLogin);
+        }
+
+        private void onPollError(String text) {
+            retryCount++;
+            long delay = QR_POLL_INTERVAL * (1L << Math.min(retryCount - 1, 3));
+            if (delay > QR_MAX_RETRY_DELAY) {
+                delay = QR_MAX_RETRY_DELAY;
+            }
+            if (text != null && text.startsWith("FLOOD_WAIT_")) {
+                long seconds = 1;
+                try {
+                    seconds = Long.parseLong(text.substring("FLOOD_WAIT_".length()));
+                } catch (Exception ignore) {
+                }
+                delay = Math.max(QR_POLL_INTERVAL, Math.min(seconds * 1000L, 60000L));
+            }
+            setStatus(getString(R.string.LoginQrNetworkError));
+            scheduleNextPoll(delay);
+        }
+
+        private void copyLoginLink() {
+            if (currentLink == null) {
+                return;
+            }
+            try {
+                ClipboardManager clipboardManager = (ClipboardManager) ApplicationLoader.applicationContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                clipboardManager.setPrimaryClip(ClipData.newPlainText("login", currentLink));
+                setStatus(getString(R.string.LoginQrLinkCopied));
+            } catch (Exception e) {
+                FileLog.e(e);
+            }
+        }
     }
 }

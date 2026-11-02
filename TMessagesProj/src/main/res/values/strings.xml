@@ -2767,6 +2767,19 @@
     <string name="AuthAnotherClientInfo2">Run Telegram Desktop to get the QR code.</string>
     <string name="AuthAnotherClientInfo3">Scan the QR code to connect your account.</string>
     <string name="AuthAnotherClientUrl">This code can be used to allow someone to log in to your Telegram account.\n\nTo confirm Telegram login, please go to Settings &gt; Devices &gt; Scan QR and scan the code.</string>
+    <!-- [patch G1-a] 新设备扫码登录页文案（本 fork 私有 key，远程语言包不含，直接写中文） -->
+    <string name="LoginQrEntry">通过二维码登录</string>
+    <string name="LoginQrHeader">二维码登录</string>
+    <string name="LoginQrTitle">扫码登录</string>
+    <string name="LoginQrHint">用已登录 Telegram 的手机打开「设置 → 设备 → 扫码登录」，扫描下方二维码</string>
+    <string name="LoginQrConnecting">正在获取登录二维码…</string>
+    <string name="LoginQrWaiting">等待手机端确认…</string>
+    <string name="LoginQrMigrating">正在切换登录节点…</string>
+    <string name="LoginQrNetworkError">网络异常，正在重试…</string>
+    <string name="LoginQrTwoStep">此账号开启了两步验证，请输入密码</string>
+    <string name="LoginQrFailed">登录失败，请返回重试</string>
+    <string name="LoginQrCopyLink">复制登录链接</string>
+    <string name="LoginQrLinkCopied">登录链接已复制到剪贴板</string>
     <string name="QRCodePermissionNoCameraWithHint">**Telegram** needs camera access so that you can scan QR codes. Tap Settings -> Permissions, and turn **Camera** on.</string>
     <string name="SetProfilePhoto">Set Profile Photo</string>
     <string name="AppUpdate">Update Telegram</string>

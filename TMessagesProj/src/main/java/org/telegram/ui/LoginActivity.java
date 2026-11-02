@@ -10754,6 +10754,11 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                 | ConnectionsManager.RequestFlagWithoutLogin
                 | ConnectionsManager.RequestFlagTryDifferentDc
                 | ConnectionsManager.RequestFlagEnableUnauthorized;
+        // importLoginToken 是显式指定 DC 的跨 DC 关键请求：不能带 TryDifferentDc
+        // （native 对 30s 未完成的 TryDifferentDc 请求会随机改 currentDatacenterId，见 jni/tgnet/ConnectionsManager.cpp:2782-2805）
+        private static final int QR_IMPORT_FLAGS = ConnectionsManager.RequestFlagFailOnServerErrors
+                | ConnectionsManager.RequestFlagWithoutLogin
+                | ConnectionsManager.RequestFlagEnableUnauthorized;
 
         private final ImageView qrImageView;
         private final TextView titleView;
@@ -10796,7 +10801,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
             qrContainer.setBackground(qrBackground);
             final int qrPadding = AndroidUtilities.dp(12);
             qrContainer.setPadding(qrPadding, qrPadding, qrPadding, qrPadding);
-            addView(qrContainer, LayoutHelper.createLinear(AndroidUtilities.dp(220), AndroidUtilities.dp(220), Gravity.CENTER_HORIZONTAL, 32, 20, 32, 0));
+            // 注意：LayoutHelper.createLinear 的宽高会自动做 dp 转换，这里必须传原始 dp 数值（不能先 dp()）
+            addView(qrContainer, LayoutHelper.createLinear(220, 220, Gravity.CENTER_HORIZONTAL, 32, 20, 32, 0));
 
             qrImageView = new ImageView(context);
             qrImageView.setScaleType(ImageView.ScaleType.FIT_XY);
@@ -10923,13 +10929,15 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
 
         private void handleLoginTokenResponse(TLObject response, TLRPC.TL_error error) {
             if (error != null) {
+                logQr("exportLoginToken error: " + error.text + " code=" + error.code);
                 if (error.text != null && error.text.contains("SESSION_PASSWORD_NEEDED")) {
-                    openTwoStepVerificationPage();
+                    openTwoStepVerificationPage(0);
                 } else {
                     onPollError(error.text);
                 }
                 return;
             }
+            logQr("exportLoginToken ok: " + (response == null ? "null" : response.getClass().getSimpleName()));
             if (response instanceof TLRPC.TL_auth_loginToken) {
                 TLRPC.TL_auth_loginToken loginToken = (TLRPC.TL_auth_loginToken) response;
                 retryCount = 0;
@@ -10937,8 +10945,10 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                 setStatus(getString(R.string.LoginQrWaiting));
                 scheduleNextPoll(QR_POLL_INTERVAL);
             } else if (response instanceof TLRPC.TL_auth_loginTokenMigrateTo) {
+                logQr("export -> loginTokenMigrateTo dc=" + ((TLRPC.TL_auth_loginTokenMigrateTo) response).dc_id);
                 importLoginToken((TLRPC.TL_auth_loginTokenMigrateTo) response);
             } else if (response instanceof TLRPC.TL_auth_loginTokenSuccess) {
+                logQr("export -> loginTokenSuccess");
                 stopPolling();
                 onQrLoginSuccess(((TLRPC.TL_auth_loginTokenSuccess) response).authorization);
             } else {
@@ -10986,11 +10996,21 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                     return;
                 }
                 if (error != null) {
-                    onPollError(error.text);
+                    logQr("importLoginToken error: " + error.text + " code=" + error.code + " dc=" + migrate.dc_id);
+                    if (error.text != null && error.text.contains("SESSION_PASSWORD_NEEDED")) {
+                        // 2FA 账号在迁移 DC 上仍可能要求云密码：先切到该 DC，再在迁移后的 DC 上取 password
+                        getConnectionsManager().setDefaultDatacenterId(migrate.dc_id);
+                        openTwoStepVerificationPage(migrate.dc_id);
+                    } else {
+                        onPollError(error.text);
+                    }
                     return;
                 }
+                logQr("importLoginToken ok: " + (response == null ? "null" : response.getClass().getSimpleName()) + " dc=" + migrate.dc_id);
+                // TDLib 对 import 成功是无条件先 set_main_dc_id(imported_dc_id_) 再处理返回
+                // （AuthManager.cpp:1205-1218），loginToken 与 loginTokenSuccess 两种响应都要切
+                getConnectionsManager().setDefaultDatacenterId(migrate.dc_id);
                 if (response instanceof TLRPC.TL_auth_loginToken) {
-                    getConnectionsManager().setDefaultDatacenterId(migrate.dc_id);
                     retryCount = 0;
                     showQrCode(((TLRPC.TL_auth_loginToken) response).token);
                     setStatus(getString(R.string.LoginQrWaiting));
@@ -11001,7 +11021,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                 } else {
                     onPollError(null);
                 }
-            }), null, null, QR_REQUEST_FLAGS, migrate.dc_id, ConnectionsManager.ConnectionTypeGeneric, true);
+            }), null, null, QR_IMPORT_FLAGS, migrate.dc_id, ConnectionsManager.ConnectionTypeGeneric, true);
         }
 
         private void onQrLoginSuccess(TLRPC.auth_Authorization authorization) {
@@ -11017,10 +11037,18 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
             }
         }
 
-        private void openTwoStepVerificationPage() {
+        /**
+         * 2FA：取 account.getPassword 并进入官方云密码页。
+         *
+         * @param dcId >0 表示在指定 DC 上取（扫码迁移后的 DC）；0 表示当前默认 DC
+         */
+        private void openTwoStepVerificationPage(int dcId) {
             setStatus(getString(R.string.LoginQrTwoStep));
             final TL_account.getPassword req = new TL_account.getPassword();
-            currentRequestId = getConnectionsManager().sendRequest(req, (response, error) -> AndroidUtilities.runOnUIThread(() -> {
+            final int flags = ConnectionsManager.RequestFlagFailOnServerErrors
+                    | ConnectionsManager.RequestFlagWithoutLogin
+                    | (dcId > 0 ? ConnectionsManager.RequestFlagEnableUnauthorized : 0);
+            final RequestDelegate delegate = (response, error) -> AndroidUtilities.runOnUIThread(() -> {
                 currentRequestId = -1;
                 if (!polling || destroyed || getParentActivity() == null) {
                     return;
@@ -11036,7 +11064,12 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                 } else {
                     setStatus(getString(R.string.LoginQrFailed));
                 }
-            }), ConnectionsManager.RequestFlagFailOnServerErrors | ConnectionsManager.RequestFlagWithoutLogin);
+            });
+            if (dcId > 0) {
+                currentRequestId = getConnectionsManager().sendRequest(req, delegate, null, null, flags, dcId, ConnectionsManager.ConnectionTypeGeneric, true);
+            } else {
+                currentRequestId = getConnectionsManager().sendRequest(req, delegate, flags);
+            }
         }
 
         private void onPollError(String text) {
@@ -11053,8 +11086,14 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                 }
                 delay = Math.max(QR_POLL_INTERVAL, Math.min(seconds * 1000L, 60000L));
             }
-            setStatus(getString(R.string.LoginQrNetworkError));
+            logQr("poll error: " + text + ", retry in " + delay + "ms");
+            setStatus(getString(R.string.LoginQrNetworkError) + (BuildVars.DEBUG_VERSION && text != null ? " [" + text + "]" : ""));
             scheduleNextPoll(delay);
+        }
+
+        private void logQr(String message) {
+            FileLog.e("qr_login: " + message);
+            android.util.Log.e("DSHQR", message);
         }
 
         private void copyLoginLink() {

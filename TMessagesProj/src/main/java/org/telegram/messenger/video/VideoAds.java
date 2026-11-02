@@ -195,6 +195,10 @@ public static VideoAds make(
     private void load() {
         if (loading || loaded) return;
 
+        if (BuildVars.HIDE_SPONSORED) {
+            return; // [patch G2] 关闭视频/图片查看器贴片广告，不发 messages.getSponsoredMessages
+        }
+
         if (UserConfig.getInstance(currentAccount).isPremium() && MessagesController.getInstance(currentAccount).isSponsoredDisabled()) {
             return;
         }

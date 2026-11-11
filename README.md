@@ -11,7 +11,7 @@
 
 ## 当前状态
 
-- 上游基线：`DrKLO/Telegram` 13.1.1（commit `3de37c8`）；官方当前最新为 13.2.1（`7be672e`，2026-11-07），升级方式见 [docs/UPSTREAM-SYNC.md](docs/UPSTREAM-SYNC.md)；
+- 上游基线：`DrKLO/Telegram` 13.2.1（commit `7be672e`，2026-11-07，已同步；上一版基线 13.1.1 `3de37c8`），升级方式见 [docs/UPSTREAM-SYNC.md](docs/UPSTREAM-SYNC.md)；
 - 改动分支：`feat/no-sms-login-no-ads`（4 个代码 commit，均为小范围改动）；
 - 构建：`assembleDebug` / `assembleRelease` 均已通过（JDK 17 + SDK 36 + NDK 27.2）；证据见 [docs/evidence/](docs/evidence/)；
 - 真机：扫码登录（含 2FA）、去广告已验证通过，记录见 [docs/evidence/S7-realtime-validation.md](docs/evidence/S7-realtime-validation.md)。
@@ -73,8 +73,8 @@ export ANDROID_HOME=/opt/android-sdk ANDROID_SDK_ROOT=/opt/android-sdk
 
 编译产物不走本地环境，由 **GitHub Actions 自动构建并发布 Release**：
 
-- 下载地址：<https://github.com/small-ora/telegram-android/releases>（当前最新 `v13.1.1`，安装 `tg-client-*-arm64-release.apk` 即可）；
-- 触发方式：推送 `v*` 标签（如 `v13.1.1`）→ 自动构建 release APK + 创建 Release；
+- 下载地址：<https://github.com/small-ora/telegram-android/releases>（当前最新 `v13.2.1`，安装 `tg-client-*-arm64-release.apk` 即可）；
+- 触发方式：推送 `v*` 标签（如 `v13.2.1`）→ 自动构建 release APK + 创建 Release；
 - 只构建不发布：Actions 页面手动 Run workflow，产物在 run 的 Artifacts 中；
 - 与历史 Release 使用同一签名（仓库自带 `config/release.keystore`），可覆盖升级；
   与官方版包名冲突，首次安装需先卸载官方 Telegram（聊天数据在云端，不丢）。

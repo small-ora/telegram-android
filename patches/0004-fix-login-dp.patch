@@ -1,4 +1,4 @@
-From 14375818b904221bfd7b4682b42386013fe8feac Mon Sep 17 00:00:00 2001
+From c6949edec40355436a8d65d9327d7678139cf7ae Mon Sep 17 00:00:00 2001
 From: dsh-agent <agent@local>
 Date: Mon, 2 Nov 2026 10:57:13 +0800
 Subject: [PATCH 4/4] =?UTF-8?q?fix(login):=20=E4=BF=AE=E6=AD=A3=E4=BA=8C?=
@@ -23,10 +23,10 @@ Content-Transfer-Encoding: 8bit
  1 file changed, 48 insertions(+), 9 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
-index d8b4a8896..8049d5100 100644
+index f5003444a..7eddf85f6 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
-@@ -10417,6 +10417,11 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -10754,6 +10754,11 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                  | ConnectionsManager.RequestFlagWithoutLogin
                  | ConnectionsManager.RequestFlagTryDifferentDc
                  | ConnectionsManager.RequestFlagEnableUnauthorized;
@@ -38,7 +38,7 @@ index d8b4a8896..8049d5100 100644
  
          private final ImageView qrImageView;
          private final TextView titleView;
-@@ -10459,7 +10464,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -10796,7 +10801,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
              qrContainer.setBackground(qrBackground);
              final int qrPadding = AndroidUtilities.dp(12);
              qrContainer.setPadding(qrPadding, qrPadding, qrPadding, qrPadding);
@@ -48,7 +48,7 @@ index d8b4a8896..8049d5100 100644
  
              qrImageView = new ImageView(context);
              qrImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-@@ -10586,13 +10592,15 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -10923,13 +10929,15 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
  
          private void handleLoginTokenResponse(TLObject response, TLRPC.TL_error error) {
              if (error != null) {
@@ -65,7 +65,7 @@ index d8b4a8896..8049d5100 100644
              if (response instanceof TLRPC.TL_auth_loginToken) {
                  TLRPC.TL_auth_loginToken loginToken = (TLRPC.TL_auth_loginToken) response;
                  retryCount = 0;
-@@ -10600,8 +10608,10 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -10937,8 +10945,10 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                  setStatus(getString(R.string.LoginQrWaiting));
                  scheduleNextPoll(QR_POLL_INTERVAL);
              } else if (response instanceof TLRPC.TL_auth_loginTokenMigrateTo) {
@@ -76,7 +76,7 @@ index d8b4a8896..8049d5100 100644
                  stopPolling();
                  onQrLoginSuccess(((TLRPC.TL_auth_loginTokenSuccess) response).authorization);
              } else {
-@@ -10649,11 +10659,21 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -10986,11 +10996,21 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                      return;
                  }
                  if (error != null) {
@@ -100,7 +100,7 @@ index d8b4a8896..8049d5100 100644
                      retryCount = 0;
                      showQrCode(((TLRPC.TL_auth_loginToken) response).token);
                      setStatus(getString(R.string.LoginQrWaiting));
-@@ -10664,7 +10684,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -11001,7 +11021,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                  } else {
                      onPollError(null);
                  }
@@ -109,7 +109,7 @@ index d8b4a8896..8049d5100 100644
          }
  
          private void onQrLoginSuccess(TLRPC.auth_Authorization authorization) {
-@@ -10680,10 +10700,18 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -11017,10 +11037,18 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
              }
          }
  
@@ -130,7 +130,7 @@ index d8b4a8896..8049d5100 100644
                  currentRequestId = -1;
                  if (!polling || destroyed || getParentActivity() == null) {
                      return;
-@@ -10699,7 +10727,12 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -11036,7 +11064,12 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                  } else {
                      setStatus(getString(R.string.LoginQrFailed));
                  }
@@ -144,7 +144,7 @@ index d8b4a8896..8049d5100 100644
          }
  
          private void onPollError(String text) {
-@@ -10716,10 +10749,16 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -11053,10 +11086,16 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                  }
                  delay = Math.max(QR_POLL_INTERVAL, Math.min(seconds * 1000L, 60000L));
              }

@@ -1,4 +1,4 @@
-From bc9e3c6b07d6b6656488a4b512df68446752e78c Mon Sep 17 00:00:00 2001
+From 3ed45d74df370ef4d603575f88ee02bad4e064fc Mon Sep 17 00:00:00 2001
 From: dsh-agent <agent@local>
 Date: Mon, 2 Nov 2026 09:40:53 +0800
 Subject: [PATCH 2/4] =?UTF-8?q?feat(ads):=20=E5=85=B3=E9=97=AD=E8=A7=86?=
@@ -18,10 +18,10 @@ Content-Transfer-Encoding: 8bit
  1 file changed, 4 insertions(+)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/video/VideoAds.java b/TMessagesProj/src/main/java/org/telegram/messenger/video/VideoAds.java
-index a402447d4..e3dacae93 100644
+index c9dce56d3..8df81f09b 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/video/VideoAds.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/video/VideoAds.java
-@@ -195,6 +195,10 @@ public static VideoAds make(
+@@ -196,6 +196,10 @@ public static VideoAds make(
      private void load() {
          if (loading || loaded) return;
  

@@ -1,4 +1,4 @@
-From ca4085c6826f680262a7f769dab4ce7e1e834f89 Mon Sep 17 00:00:00 2001
+From 91da4a6de561361cb244a849de634aba11440853 Mon Sep 17 00:00:00 2001
 From: dsh-agent <agent@local>
 Date: Mon, 2 Nov 2026 09:34:28 +0800
 Subject: [PATCH 1/4] =?UTF-8?q?feat(ads):=20=E5=85=B3=E9=97=AD=E9=A2=91?=
@@ -25,7 +25,7 @@ Content-Transfer-Encoding: 8bit
  4 files changed, 10 insertions(+), 2 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java b/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java
-index 4ed7e6491..841a0b882 100644
+index ca821813f..5b6d27fb5 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java
 @@ -40,6 +40,10 @@ public class BuildVars {
@@ -38,12 +38,12 @@ index 4ed7e6491..841a0b882 100644
 +
      // works only on official app ids, disable on your forks
      public static boolean SUPPORTS_PASSKEYS = true;
- 
+     // the second main tab: News, or Contacts as before them
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
-index 91faf802c..33e525f99 100644
+index 9d0077ffc..2e801484e 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
-@@ -21667,6 +21667,9 @@ public class MessagesController extends BaseController implements NotificationCe
+@@ -21724,6 +21724,9 @@ public class MessagesController extends BaseController implements NotificationCe
      }
  
      public SponsoredMessagesInfo getSponsoredMessages(long dialogId) {
@@ -54,7 +54,7 @@ index 91faf802c..33e525f99 100644
          if (info != null && (info.loading || Math.abs(SystemClock.elapsedRealtime() - info.loadTime) <= 5 * 60 * 1000)) {
              return info;
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/Adapters/DialogsSearchAdapter.java b/TMessagesProj/src/main/java/org/telegram/ui/Adapters/DialogsSearchAdapter.java
-index 4146704a0..a25040287 100644
+index 46ea8f004..f5724fbc0 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/Adapters/DialogsSearchAdapter.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/Adapters/DialogsSearchAdapter.java
 @@ -33,6 +33,7 @@ import org.telegram.PhoneFormat.PhoneFormat;
@@ -65,7 +65,7 @@ index 4146704a0..a25040287 100644
  import org.telegram.messenger.ChatObject;
  import org.telegram.messenger.ContactsController;
  import org.telegram.messenger.DialogObject;
-@@ -1131,7 +1132,7 @@ public class DialogsSearchAdapter extends RecyclerListView.SelectionAdapter {
+@@ -1132,7 +1133,7 @@ public class DialogsSearchAdapter extends RecyclerListView.SelectionAdapter {
                  ConnectionsManager.getInstance(currentAccount).cancelRequest(sponsoredReqId, true);
                  sponsoredReqId = 0;
              }
@@ -75,10 +75,10 @@ index 4146704a0..a25040287 100644
              } else {
                  final TLRPC.TL_contacts_getSponsoredPeers req = new TLRPC.TL_contacts_getSponsoredPeers();
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 87afb3944..3bcfa00ba 100644
+index 1ed161bf7..055342262 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-@@ -25205,7 +25205,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -25759,7 +25759,7 @@ public class ChatActivity extends BaseFragment implements
      private Pattern sponsoredUrlPattern;
      private MessageObject botSponsoredMessage;
      private void addSponsoredMessages(boolean animated) {

@@ -86,7 +86,26 @@ ls -lh TMessagesProj_App/build/outputs/apk/debug/*.apk
 | release 安装失败 `INSTALL_FAILED_UPDATE_INCOMPATIBLE` | 官方版/其他签名的同名包已存在，先卸载 |
 | 扫码登录报 `AUTH_TOKEN_INVALID2` | 登录页勾选了「测试后台」：取消勾选后重试（详见 `evidence/S7-realtime-validation.md`） |
 
-## 6. 可复现性说明
+## 6. GitHub Actions 自动构建（推荐，无需本地环境）
+
+仓库自带 [`.github/workflows/build-apk.yml`](../.github/workflows/build-apk.yml)，
+在 GitHub 托管 runner 上构建 **已签名的 release APK** 并发布到 Releases：
+
+| 方式 | 操作 | 结果 |
+|---|---|---|
+| 发版（推荐） | `git tag v13.1.1 && git push origin v13.1.1` | 构建 + 创建 Release + 上传 APK 与 sha256 |
+| 只构建 | Actions → Build signed APK → Run workflow | 仅构建，产物在该次 run 的 Artifacts |
+
+CI 使用的工具链与本地一致（JDK 17 / SDK 36 / build-tools 36.0.0 / NDK 27.2 / CMake 3.22.1），
+签名沿用仓库自带 `TMessagesProj/config/release.keystore`（上游公开测试签名），因此：
+- 与历史 CI Release 可直接覆盖升级；
+- 与官方 Telegram 包名相同但签名不同，首次安装需卸载官方版。
+
+> 注意：fork 仓库首次使用时需要在 **Actions** 页面启用 workflow（或执行一次
+> `gh api -X PUT repos/<owner>/<repo>/actions/permissions -f enabled=true`），
+> 否则推送标签不会触发构建。
+
+## 7. 可复现性说明
 
 - 仓库不包含 `artifacts/`（APK 产物）与构建缓存；构建产物由源码 + 固定工具链重新生成。
 - 上游版本固定为 13.1.1（`3de37c8`），升级流程见 `docs/UPSTREAM-SYNC.md`。

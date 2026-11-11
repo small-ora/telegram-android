@@ -1,0 +1,141 @@
+name: Build signed APK
+
+# 触发方式：
+# 1) 推送 v* 标签（如 v13.1.1）→ 构建并自动创建 GitHub Release，上传 APK；
+# 2) 手动 Actions → Run workflow → 仅构建，产物在 run 的 Artifacts 里（不建 Release）。
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "版本标签（可选，例如 v13.1.1；留空则只构建 artifact）"
+        required: false
+        default: ""
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-apk-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 180
+
+    steps:
+      - name: 释放磁盘空间
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL \
+            /usr/local/share/boost /usr/local/lib/android/sdk/system-images \
+            /usr/local/lib/android/sdk/emulator || true
+          sudo apt-get clean
+          df -h /
+
+      - name: 检出源码与子模块
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: 安装 JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: 安装 Android SDK 组件
+        run: |
+          SDKMANAGER="$(command -v sdkmanager || true)"
+          if [ -z "$SDKMANAGER" ]; then
+            SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          fi
+          yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
+          "$SDKMANAGER" \
+            "platforms;android-36" \
+            "build-tools;36.0.0" \
+            "ndk;27.2.12479018" \
+            "cmake;3.22.1"
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
+          df -h /
+
+      - name: 缓存 Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties', 'gradle.properties', '**/*.gradle') }}
+          restore-keys: |
+            gradle-${{ runner.os }}-
+
+      - name: 构建 release APK（arm64-v8a）
+        run: |
+          set -o pipefail
+          ./gradlew :TMessagesProj_App:assembleRelease \
+            -Pandroid.injected.build.abi=arm64-v8a \
+            -Dorg.gradle.jvmargs=-Xmx4g \
+            --max-workers=4 --console=plain --no-daemon 2>&1 | tee build.log
+
+      - name: 校验产物并计算校验和
+        id: apk
+        run: |
+          APK="$(find TMessagesProj_App/build -name '*.apk' -path '*release*' | sort | head -1)"
+          if [ -z "$APK" ]; then
+            echo "❌ 未找到 release APK"
+            exit 1
+          fi
+          VER="$(grep '^APP_VERSION_NAME=' gradle.properties | cut -d= -f2)"
+          CODE="$(grep '^APP_VERSION_CODE=' gradle.properties | cut -d= -f2)"
+          NAME="tg-client-${VER}-${CODE}-arm64-release.apk"
+          cp "$APK" "$NAME"
+          sha256sum "$NAME" | tee "$NAME.sha256"
+          echo "apk=$NAME" >> "$GITHUB_OUTPUT"
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+          echo "code=$CODE" >> "$GITHUB_OUTPUT"
+          ls -lh "$NAME"
+
+      - name: 上传构建产物（Artifacts）
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: |
+            *.apk
+            *.apk.sha256
+          if-no-files-found: error
+
+      - name: 创建 GitHub Release（仅 tag 触发）
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APK: ${{ steps.apk.outputs.apk }}
+          VER: ${{ steps.apk.outputs.version }}
+          CODE: ${{ steps.apk.outputs.code }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          cat > release-notes.md <<EOF
+          ## Telegram Android ${VER} (${CODE}) — 自用版
+
+          基于官方源码 ${VER}，保留两处改动：
+
+          - 🔐 **扫码登录**：新设备登录页「通过二维码登录」，用已登录的手机扫码确认，无需短信验证码；
+          - 🚫 **去除广告**：频道/Bot 赞助消息、搜索推荐频道、视频/图片贴片广告。
+
+          安装包：\`${APK}\`
+
+          ### 安装说明
+
+          - 包名 \`org.telegram.messenger\`，与官方版冲突：首次安装需先卸载官方 Telegram（数据在云端，不丢）；
+          - 与历史 Release 使用同一签名（仓库自带 keystore），可直接覆盖升级；
+          - 仅包含 arm64-v8a（现代 Android 手机）；
+          - 校验：\`sha256sum ${APK}\`（见同名 .sha256 文件）。
+
+          > 非官方客户端，与 Telegram 官方无关联；源码以 GPLv2 发布，见仓库 LICENSE。
+          EOF
+          gh release create "$TAG" "$APK" "$APK.sha256" \
+            --title "Telegram ${VER} 自用版（扫码登录 + 去广告）" \
+            --notes-file release-notes.md

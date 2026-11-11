@@ -106,7 +106,14 @@ git diff feat/no-sms-login-no-ads..HEAD --stat
 ```bash
 # 升级验证通过后，用 --force-with-lease 推送 rebase 后的分支
 git push --force-with-lease origin feat/no-sms-login-no-ads
+
+# 打标签触发 GitHub Actions 自动构建并发 Release（APK 由 CI 产出）
+git tag v13.2.1
+git push origin v13.2.1
 ```
+
+> 标签只需在发布时打；日常同步不必打标签。CI 构建约 30–60 分钟，完成后在仓库
+> **Releases** 页面下载对应版本 APK（详见 `docs/BUILD.md` §6）。
 
 > rebase 会重写历史，普通 push 会被拒绝；`--force-with-lease` 比 `-f` 安全（远端只允许快进到本地的预期状态）。
 

@@ -1,0 +1,7 @@
+f664cffad643d56829f6fb53632aa5f32c4ebd70785ab82a7d7c1ab530534333  artifacts/tg-client-S3-arm64-debug.apk
+16d94d7e68dd671ab165e01db725a0369768255de0e705a303a686b2a753fc91  artifacts/tg-client-S4-arm64-debug.apk
+ad8806523167ba442bdd8b9368ace7bae3da5063cd8136b65b49d8309ec27c0e  artifacts/tg-client-S4b-arm64-debug.apk
+6fc5f4a4b78f4bba71b7afd3db9eabb54c9a084f305fc485916d4d0001510205  artifacts/tg-client-S4c-arm64-debug.apk
+0b289e3a3939134c77fe558a1a5c49fda65f1a3d35dd39b6b9287fb102c47d31  artifacts/tg-client-S4d-arm64-debug.apk
+6883a2527f99d9b52299adc1e88a195b9541efbd2176936bd2c1ec70626ef846  artifacts/tg-client-S6-arm64-release.apk
+7e044715e9ec2f5500fc5006063294ce1462b402ffed44ee0a8850abd3486694  artifacts/tg-client-S6b-arm64-release.apk

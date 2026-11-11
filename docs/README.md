@@ -43,6 +43,8 @@ docs/
 │   ├── S4-qr-login.md        # 扫码登录实现与验证
 │   ├── S6-release-build.md   # release 构建
 │   ├── S7-realtime-validation.md # 真机验证记录
+│   ├── REPO-RESTRUCTURE-20261111.md # 仓库合并与整理记录（2026-11-11）
+│   ├── artifacts-SHA256SUMS.txt # 本地 APK 产物的校验和存档
 │   ├── logs/                 # 每次构建的完整日志
 │   ├── screenshots/          # 真机截图
 │   └── frozen/SPEC_BASE.txt  # SPEC 冻结记录（sha256 / 时间 / 依据）

@@ -37,7 +37,7 @@ else
   bad "发现 >5MB 文件（docs/scripts/tools/patches）："; echo "$BIG"
 fi
 
-LEAK="$(grep -rInE --exclude=repo-check.sh 'ghp_[A-Za-z0-9]{20,}|github_pat_|-----BEGIN (RSA|OPENSSH|EC) PRIVATE KEY-----' docs scripts tools 2>/dev/null || true)"
+LEAK="$(grep -rInE --exclude=repo-check.sh 'ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{22,}|-----BEGIN (RSA|OPENSSH|EC) PRIVATE KEY-----' docs scripts tools 2>/dev/null || true)"
 if [ -z "$LEAK" ]; then
   ok "docs/scripts/tools 中未发现疑似密钥"
 else

@@ -25,4 +25,5 @@ fi
 
 grep -q 'BUILD SUCCESSFUL' "$LOG" || { echo "❌ 日志中未见 BUILD SUCCESSFUL" >&2; exit 1; }
 echo "✅ 构建成功；APK："
-find TMessagesProj_App/build/outputs -name '*.apk' -newermt '-2 hours' -print -exec ls -lh {} \; 2>/dev/null || true
+find TMessagesProj_App/build/outputs TMessagesProj_App/build/intermediates/apk \
+  -name '*.apk' -mmin -120 -print -exec ls -lh {} \; 2>/dev/null || true

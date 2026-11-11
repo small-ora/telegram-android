@@ -73,7 +73,7 @@ export ANDROID_HOME=/opt/android-sdk ANDROID_SDK_ROOT=/opt/android-sdk
 
 编译产物不走本地环境，由 **GitHub Actions 自动构建并发布 Release**：
 
-- 下载地址：<https://github.com/small-ora/telegram-android/releases>（选最新版本，安装 `tg-client-*-arm64-release.apk` 即可）；
+- 下载地址：<https://github.com/small-ora/telegram-android/releases>（当前最新 `v13.1.1`，安装 `tg-client-*-arm64-release.apk` 即可）；
 - 触发方式：推送 `v*` 标签（如 `v13.1.1`）→ 自动构建 release APK + 创建 Release；
 - 只构建不发布：Actions 页面手动 Run workflow，产物在 run 的 Artifacts 中；
 - 与历史 Release 使用同一签名（仓库自带 `config/release.keystore`），可覆盖升级；

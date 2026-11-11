@@ -119,7 +119,7 @@ git reset --hard 1437581
 
 ## 6. 未完成 / 后续
 
-- GitHub 仓库创建与推送：等待用户确认授权方式（设备码 / Deploy Key）与仓库可见性；
+- GitHub 仓库创建与推送：✅ 已完成，见 `docs/evidence/GITHUB-PUBLISH-20261111.md`（public fork，CI 自动构建并发布 Release）；
 - 官方已发布 13.2.1（`7be672e`），本仓库基线仍为已验证的 13.1.1；升级按 `docs/UPSTREAM-SYNC.md` 执行，
   需要重新构建 + 真机冒烟后再作为日用包；
-- APK 是否发布到 GitHub Releases 待定（默认仅本地保留，仓库不入库）。
+- APK 发布：✅ 已由 GitHub Actions 自动构建并发布到 Releases（v13.1.1）。

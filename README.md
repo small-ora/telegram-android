@@ -1,46 +1,96 @@
-## Telegram messenger for Android
+# 自用 Telegram Android 客户端（官方源码 fork）
 
-[Telegram](https://telegram.org) is a messaging app with a focus on speed and security. It’s superfast, simple and free.
-This repo contains the official source code for [Telegram App for Android](https://play.google.com/store/apps/details?id=org.telegram.messenger).
+基于官方 Android 客户端源码 [DrKLO/Telegram](https://github.com/DrKLO/Telegram)（GPLv2）维护的个人自用分支，
+在保留官方功能的前提下做了两处改动：
 
-## Creating your Telegram Application
+1. **扫码登录**：新设备登录页提供「扫描二维码登录」，用已登录的旧手机确认即可完成登录（含 DC 迁移与 2FA），不需要接收短信验证码；
+2. **去除广告**：关闭频道 / Bot 内的赞助消息、会话搜索中的推荐频道、视频/图片查看器的贴片广告。
 
-We welcome all developers to use our API and source code to create applications on our platform.
-There are several things we require from **all developers** for the moment.
+> ⚠️ **非官方客户端**。本项目与 Telegram 官方无关；所有源码版权归原作者（见 [LICENSE](LICENSE)）。
+> 仅用于个人自用与学习；公开分发 APK 前请自行评估许可（GPLv2）、商标与 Telegram API 条款风险。
 
-1. [**Obtain your own api_id**](https://core.telegram.org/api/obtaining_api_id) for your application.
-2. Please **do not** use the name Telegram for your app — or make sure your users understand that it is unofficial.
-3. Kindly **do not** use our standard logo (white paper plane in a blue circle) as your app's logo.
-3. Please study our [**security guidelines**](https://core.telegram.org/mtproto/security_guidelines) and take good care of your users' data and privacy.
-4. Please remember to publish **your** code too in order to comply with the licences.
+## 当前状态
 
-### API, Protocol documentation
+- 上游基线：`DrKLO/Telegram` 13.1.1（commit `3de37c8`）；官方当前最新为 13.2.1（`7be672e`，2026-11-07），升级方式见 [docs/UPSTREAM-SYNC.md](docs/UPSTREAM-SYNC.md)；
+- 改动分支：`feat/no-sms-login-no-ads`（4 个代码 commit，均为小范围改动）；
+- 构建：`assembleDebug` / `assembleRelease` 均已通过（JDK 17 + SDK 36 + NDK 27.2）；证据见 [docs/evidence/](docs/evidence/)；
+- 真机：扫码登录（含 2FA）、去广告已验证通过，记录见 [docs/evidence/S7-realtime-validation.md](docs/evidence/S7-realtime-validation.md)。
 
-Telegram API manuals: https://core.telegram.org/api
+## 本分支的改动
 
-MTproto protocol manuals: https://core.telegram.org/mtproto
+| 提交 | 内容 | 涉及文件 |
+|---|---|---|
+| `ca4085c` | 去广告（频道/Bot 赞助消息 + 搜索推荐频道） | `BuildVars`、`MessagesController`、`ChatActivity`、`DialogsSearchAdapter` |
+| `bc9e3c6` | 去广告（视频/图片查看器贴片） | `video/VideoAds.java` |
+| `de96d77` | 扫码登录（二维码页、轮询、DC 迁移、2FA 衔接） | `LoginActivity`、`res/values/strings.xml` |
+| `1437581` | 二维码页尺寸修复 + 扫码链路错误日志 | `LoginActivity` |
 
-### Compilation Guide
+设计、代码定位与验证过程见 [docs/spec/](docs/spec/) 与 [docs/recon/](docs/recon/)；
+GPL 要求的修改记录见 [docs/MODIFICATIONS.md](docs/MODIFICATIONS.md)。
 
-**Note**: In order to support [reproducible builds](https://core.telegram.org/reproducible-builds), this repo contains dummy release.keystore,  google-services.json and filled variables inside BuildVars.java. Before publishing your own APKs please make sure to replace all these files with your own.
+## 仓库结构
 
-You will require Android Studio 2025.1.4, Android NDK 27.2.12479018 and Android SDK 36.
+```
+<repo-root>/
+├── docs/                      # 全部项目文档（见 docs/README.md 索引）
+│   ├── spec/                  # 需求规格（v2.1 冻结版 + v2.2 提案）
+│   ├── recon/                 # 环境勘察 / 源码勘察
+│   ├── evidence/              # 编译与真机验证证据（含日志、截图）
+│   ├── PLAN.md                # 开发计划与执行记录
+│   ├── ACCEPTANCE.md          # 验收包
+│   ├── BUILD.md               # 构建指南
+│   ├── UPSTREAM-SYNC.md       # 升级同步官方版本的流程
+│   └── MODIFICATIONS.md       # 修改记录（GPL 要求）
+├── patches/                   # 本分支的补丁序列（灾难恢复 / 手工重放用）
+├── scripts/                   # 构建、同步、校验脚本
+├── tools/probe/               # Telegram API 探针脚本（Python + Telethon）
+├── TMessagesProj*/            # 官方源码（Fork 自 DrKLO/Telegram）
+└── ...                        # 官方构建文件（gradlew、build.gradle 等）
+```
 
-1. Clone the Telegram source code with its submodules:
-   ```bash
-   git clone --recursive --shallow-submodules https://github.com/DrKLO/Telegram.git Telegram
-   ```
-   In case you forgot the `--recursive` flag, change to the `Telegram` directory and run:
-   ```bash
-   git submodule init && git submodule update --init --recursive --depth=1
-   ```
-2. Copy your release.keystore into TMessagesProj/config
-3. Fill out RELEASE_KEY_PASSWORD, RELEASE_KEY_ALIAS, RELEASE_STORE_PASSWORD in gradle.properties to access your  release.keystore
-4.  Go to https://console.firebase.google.com/, create two android apps with application IDs org.telegram.messenger and org.telegram.messenger.beta, turn on firebase messaging and download google-services.json, which should be copied to the same folder as TMessagesProj.
-5. Open the project in the Studio (note that it should be opened, NOT imported).
-6. Fill out values in TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java – there’s a link for each of the variables showing where and which data to obtain.
-7. You are ready to compile Telegram.
+`artifacts/`（本地 APK 产物）、`backup-*/`（本地备份）和任何会话文件都**不纳入版本库**，见 `.gitignore`。
+上游原始 README 存档在 [docs/upstream-README.md](docs/upstream-README.md)。
 
-### Localization
+## 构建（快速开始）
 
-We moved all translations to https://translations.telegram.org/en/android/. Please use it.
+要求：JDK 17、Android SDK 36（build-tools 36.0.0）、NDK 27.2.12479018、CMake 3.22.1。
+完整说明（含 release 签名与常见问题）见 [docs/BUILD.md](docs/BUILD.md)。
+
+```bash
+cd <repo-root>
+git submodule update --init --recursive        # 首次克隆后
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export ANDROID_HOME=/opt/android-sdk ANDROID_SDK_ROOT=/opt/android-sdk
+
+# debug（包名带 .beta，可与官方版共存）
+./scripts/build-debug.sh
+
+# release（沿用仓库自带的 config/release.keystore 签名）
+./scripts/build-release.sh
+```
+
+## 升级同步官方版本
+
+目标是「官方新版本 + 保留登录与去广告改动」。推荐流程（详见 [docs/UPSTREAM-SYNC.md](docs/UPSTREAM-SYNC.md)）：
+
+```bash
+git fetch upstream --tags
+./scripts/sync-upstream.sh            # 把本分支 rebase 到最新上游
+# 解决冲突（集中在 LoginActivity.java / strings.xml）→ 构建 → 真机冒烟 → push
+```
+
+若 `rebase` 冲突过多，可用 `patches/` 中的补丁序列手工重放（`git am patches/*.patch`）。
+
+## 文档索引
+
+- [docs/README.md](docs/README.md) — 文档总索引与阅读顺序
+- [docs/BUILD.md](docs/BUILD.md) — 环境、构建、签名、排错
+- [docs/UPSTREAM-SYNC.md](docs/UPSTREAM-SYNC.md) — 跟随官方升级
+- [docs/MODIFICATIONS.md](docs/MODIFICATIONS.md) — 相对官方的全部修改（GPL 记录）
+- [docs/PLAN.md](docs/PLAN.md)、[docs/ACCEPTANCE.md](docs/ACCEPTANCE.md) — 开发计划与验收记录
+- [docs/spec/](docs/spec/)、[docs/recon/](docs/recon/)、[docs/evidence/](docs/evidence/) — 规格、勘察、证据
+
+## 许可
+
+源码遵循 **GNU GPL v2**（见 [LICENSE](LICENSE)），版权归 Telegram / 上游作者所有。
+本仓库的修改同样以 GPLv2 发布；分发编译产物时须同时提供对应源码。

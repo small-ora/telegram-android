@@ -1,0 +1,37 @@
+From bc9e3c6b07d6b6656488a4b512df68446752e78c Mon Sep 17 00:00:00 2001
+From: dsh-agent <agent@local>
+Date: Mon, 2 Nov 2026 09:40:53 +0800
+Subject: [PATCH 2/4] =?UTF-8?q?feat(ads):=20=E5=85=B3=E9=97=AD=E8=A7=86?=
+ =?UTF-8?q?=E9=A2=91/=E5=9B=BE=E7=89=87=E6=9F=A5=E7=9C=8B=E5=99=A8?=
+ =?UTF-8?q?=E8=B4=B4=E7=89=87=E5=B9=BF=E5=91=8A=EF=BC=88VideoAds=EF=BC=89?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- VideoAds.load: 首行短路，不再请求 messages.getSponsoredMessages(flags|=1)
+- 与频道内广告同用 BuildVars.HIDE_SPONSORED 开关，可独立回滚
+
+验证: ./gradlew :TMessagesProj_App:assembleDebug 退出码 0（BUILD SUCCESSFUL in 1m36s）
+证据: docs/evidence/logs/build-S3c-20261102-093910.log
+---
+ .../src/main/java/org/telegram/messenger/video/VideoAds.java  | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/video/VideoAds.java b/TMessagesProj/src/main/java/org/telegram/messenger/video/VideoAds.java
+index a402447d4..e3dacae93 100644
+--- a/TMessagesProj/src/main/java/org/telegram/messenger/video/VideoAds.java
++++ b/TMessagesProj/src/main/java/org/telegram/messenger/video/VideoAds.java
+@@ -195,6 +195,10 @@ public static VideoAds make(
+     private void load() {
+         if (loading || loaded) return;
+ 
++        if (BuildVars.HIDE_SPONSORED) {
++            return; // [patch G2] 关闭视频/图片查看器贴片广告，不发 messages.getSponsoredMessages
++        }
++
+         if (UserConfig.getInstance(currentAccount).isPremium() && MessagesController.getInstance(currentAccount).isSponsoredDisabled()) {
+             return;
+         }
+-- 
+2.39.5
+

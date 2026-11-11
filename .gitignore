@@ -14,3 +14,13 @@ TMessagesProj_AppHockeyApp/afat/
 TMessagesProj_AppStandalone/afat/
 TMessagesProj_AppHuawei/afat/
 TMessagesProj/jni/ffmpeg/build_android
+
+# ---- 本项目本地文件（不纳入版本库）----
+/artifacts/
+/backup-*/
+*.apk
+*.aab
+*.session
+__pycache__/
+*.pyc
+.venv/

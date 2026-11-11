@@ -1,4 +1,4 @@
-From de96d7705c37be1f0abe9090134f27d6b4fdb93d Mon Sep 17 00:00:00 2001
+From adf0c7dba605a73b087c5e68e05e93500cf6b493 Mon Sep 17 00:00:00 2001
 From: dsh-agent <agent@local>
 Date: Mon, 2 Nov 2026 09:50:39 +0800
 Subject: [PATCH 3/4] =?UTF-8?q?feat(login):=20=E6=96=B0=E8=AE=BE=E5=A4=87?=
@@ -25,7 +25,7 @@ Content-Transfer-Encoding: 8bit
  2 files changed, 384 insertions(+), 3 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
-index de2413c78..d8b4a8896 100644
+index 36488933c..f5003444a 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 @@ -25,6 +25,7 @@ import android.animation.ValueAnimator;
@@ -44,16 +44,16 @@ index de2413c78..d8b4a8896 100644
  import android.net.ConnectivityManager;
  import android.net.Uri;
  import android.os.Build;
-@@ -115,6 +117,8 @@ import com.google.android.play.core.integrity.IntegrityManager;
- import com.google.android.play.core.integrity.IntegrityManagerFactory;
+@@ -117,6 +119,8 @@ import com.google.android.play.core.integrity.IntegrityManagerFactory;
  import com.google.android.play.core.integrity.IntegrityTokenRequest;
  import com.google.android.play.core.integrity.IntegrityTokenResponse;
+ import com.google.firebase.pnv.VerificationSupportResult;
 +import com.google.zxing.EncodeHintType;
 +import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
  
  import org.json.JSONException;
  import org.json.JSONObject;
-@@ -142,6 +146,7 @@ import org.telegram.messenger.PushListenerController;
+@@ -145,6 +149,7 @@ import org.telegram.messenger.PushListenerController;
  import org.telegram.messenger.R;
  import org.telegram.messenger.SRPHelper;
  import org.telegram.messenger.SharedConfig;
@@ -61,7 +61,7 @@ index de2413c78..d8b4a8896 100644
  import org.telegram.messenger.UserConfig;
  import org.telegram.messenger.Utilities;
  import org.telegram.tgnet.ConnectionsManager;
-@@ -258,7 +263,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -267,7 +272,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
              VIEW_CODE_FRAGMENT_SMS = 15,
              VIEW_CODE_WORD = 16,
              VIEW_CODE_PHRASE = 17,
@@ -71,7 +71,7 @@ index de2413c78..d8b4a8896 100644
  
      public final static int COUNTRY_STATE_NOT_SET_OR_VALID = 0,
              COUNTRY_STATE_EMPTY = 1,
-@@ -306,7 +312,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -315,7 +321,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
              VIEW_CODE_FRAGMENT_SMS,
              VIEW_CODE_WORD,
              VIEW_CODE_PHRASE,
@@ -81,7 +81,7 @@ index de2413c78..d8b4a8896 100644
      })
      private @interface ViewNumber {}
  
-@@ -319,7 +326,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -328,7 +335,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
  
      @ViewNumber
      private int currentViewNum;
@@ -90,7 +90,7 @@ index de2413c78..d8b4a8896 100644
      private CustomPhoneKeyboardView keyboardView;
      private ValueAnimator keyboardAnimator;
      private boolean paid;
-@@ -685,6 +692,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -708,6 +715,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
          views[VIEW_CODE_WORD] = new LoginActivityPhraseView(context, AUTH_TYPE_WORD);
          views[VIEW_CODE_PHRASE] = new LoginActivityPhraseView(context, AUTH_TYPE_PHRASE);
          views[VIEW_PAY] = new LoginPayView(context);
@@ -98,7 +98,7 @@ index de2413c78..d8b4a8896 100644
  
          for (int a = 0; a < views.length; a++) {
              views[a].setVisibility(a == 0 ? View.VISIBLE : View.GONE);
-@@ -909,6 +917,10 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -937,6 +945,10 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
      @Override
      public void onPause() {
          super.onPause();
@@ -109,7 +109,7 @@ index de2413c78..d8b4a8896 100644
          if (newAccount) {
              ConnectionsManager.getInstance(currentAccount).setAppPaused(true, false);
          }
-@@ -1138,6 +1150,12 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -1166,6 +1178,12 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                  views[currentViewNum].onBackPressed(true);
                  setPage(VIEW_ADD_EMAIL, true, null, true);
              }
@@ -122,7 +122,7 @@ index de2413c78..d8b4a8896 100644
          } else if (invoked) {
              if (views[currentViewNum].onBackPressed(true)) {
                  setPage(VIEW_PHONE_INPUT, true, null, true);
-@@ -1971,6 +1989,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -2007,6 +2025,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
          @CountryState
          private int countryState = COUNTRY_STATE_NOT_SET_OR_VALID;
          private CountrySelectActivity.Country currentCountry;
@@ -130,7 +130,7 @@ index de2413c78..d8b4a8896 100644
  
          private ArrayList<CountrySelectActivity.Country> countriesArray = new ArrayList<>();
          private HashMap<String, List<CountrySelectActivity.Country>> codesMap = new HashMap<>();
-@@ -2503,6 +2522,25 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -2539,6 +2558,25 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                  addView(bottomSpacer, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT));
              }
  
@@ -156,7 +156,7 @@ index de2413c78..d8b4a8896 100644
              HashMap<String, String> languageMap = new HashMap<>();
  
              try {
-@@ -2704,6 +2742,9 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -2740,6 +2778,9 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
  
              phoneOutlineView.updateColor();
              countryOutlineView.updateColor();
@@ -166,7 +166,7 @@ index de2413c78..d8b4a8896 100644
          }
  
          @Override
-@@ -10365,4 +10406,331 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -10702,4 +10743,331 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
          clearSheets();
          parentLayout = null;
      }
@@ -499,10 +499,10 @@ index de2413c78..d8b4a8896 100644
 +    }
  }
 diff --git a/TMessagesProj/src/main/res/values/strings.xml b/TMessagesProj/src/main/res/values/strings.xml
-index db9de7556..40af4f23b 100644
+index 9f56ca618..2cc3ea3db 100644
 --- a/TMessagesProj/src/main/res/values/strings.xml
 +++ b/TMessagesProj/src/main/res/values/strings.xml
-@@ -2763,6 +2763,19 @@
+@@ -2767,6 +2767,19 @@
      <string name="AuthAnotherClientInfo2">Run Telegram Desktop to get the QR code.</string>
      <string name="AuthAnotherClientInfo3">Scan the QR code to connect your account.</string>
      <string name="AuthAnotherClientUrl">This code can be used to allow someone to log in to your Telegram account.\n\nTo confirm Telegram login, please go to Settings &gt; Devices &gt; Scan QR and scan the code.</string>

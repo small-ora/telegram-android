@@ -55,6 +55,8 @@ Signer #1 certificate SHA-256 digest: a08d7dc323ddf71ef3201944397e0d3cce7d408472
 NDK 27.2.12479018 / CMake 3.22.1；`assembleRelease` 仅 `arm64-v8a`；签名使用仓库自带
 `TMessagesProj/config/release.keystore`（上游公开测试签名）。首次构建约 33 分钟，Gradle 缓存后预计更快。
 
+> **后续版本**：2026-11-11 已按同样的 CI 流程发布 **v13.2.1**，见 `docs/evidence/UPGRADE-13.2.1-20261111.md`。
+
 ## 4. 后续更新流程（以后你只需要去 Release 下载）
 
 ```bash

@@ -1,0 +1,840 @@
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+
+> Configure project :jlatexmath
+WARNING: The option setting 'android.r8.optimizedResourceShrinking=true' is experimental.
+The current default is 'false'.
+WARNING: The option setting 'android.defaults.buildfeatures.buildconfig=true' is deprecated.
+The current default is 'false'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+To keep using this feature, add the following to your module-level build.gradle files:
+    android.buildFeatures.buildConfig = true
+or from Android Studio, click: `Refactor` > `Migrate BuildConfig to Gradle Build Files`.
+
+> Configure project :TMessagesProj_AppHuawei
+--W- Build Environment: AGConnect plugin version is: 1.9.1.301, Gradle version is: 8.13, Android Plugin version is: 8.13.2
+--I- Using the AGConnect-Config file: /root/tg-client-code/telegram-src/TMessagesProj_AppHuawei/agconnect-services.json
+--W- The variant: afatDebug, Use the json file: /root/tg-client-code/telegram-src/TMessagesProj_AppHuawei/agconnect-services.json
+--I- Using the AGConnect-Config file: /root/tg-client-code/telegram-src/TMessagesProj_AppHuawei/agconnect-services.json
+--W- The variant: afatRelease, Use the json file: /root/tg-client-code/telegram-src/TMessagesProj_AppHuawei/agconnect-services.json
+
+> Task :TMessagesProj_Modules:media3:media-lib-container:preBuild UP-TO-DATE
+> Task :jlatexmath:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:preDebugBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:preDebugBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:preDebugBuild UP-TO-DATE
+> Task :jlatexmath:preDebugBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj:checkVisibility
+> Task :TMessagesProj:preBuild
+> Task :TMessagesProj:preDebugBuild
+> Task :TMessagesProj_Modules:media3:media-lib-database:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-container:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :jlatexmath:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:preDebugBuild UP-TO-DATE
+> Task :jlatexmath:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-common:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-database:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:preDebugBuild UP-TO-DATE
+> Task :jlatexmath:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:preDebugBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj:configureCMakeDebug[arm64-v8a]
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:preDebugBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:preDebugBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:preDebugBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:preDebugBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:preDebugBuild UP-TO-DATE
+> Task :jlatexmath:generateDebugBuildConfig UP-TO-DATE
+> Task :jlatexmath:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:mergeDebugNativeLibs NO-SOURCE
+> Task :jlatexmath:generateDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:mergeDebugNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-session:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:generateDebugResValues UP-TO-DATE
+> Task :jlatexmath:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:generateDebugResources UP-TO-DATE
+> Task :jlatexmath:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:generateDebugResources UP-TO-DATE
+> Task :jlatexmath:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:generateDebugBuildConfig UP-TO-DATE
+> Task :jlatexmath:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:generateDebugResources UP-TO-DATE
+> Task :jlatexmath:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_App:preBuild UP-TO-DATE
+> Task :TMessagesProj_App:preAfatDebugBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:generateDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:generateDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:generateDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:processDebugNavigationResources UP-TO-DATE
+> Task :jlatexmath:compileDebugJavaWithJavac UP-TO-DATE
+> Task :jlatexmath:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:generateDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:generateDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:generateDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:generateDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_App:generateAfatDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_App:javaPreCompileAfatDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:compileDebugJavaWithJavac UP-TO-DATE
+> Task :jlatexmath:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:writeDebugAarMetadata UP-TO-DATE
+> Task :jlatexmath:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:writeDebugAarMetadata UP-TO-DATE
+> Task :jlatexmath:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:extractDeepLinksDebug UP-TO-DATE
+> Task :jlatexmath:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:compileDebugAidl UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:generateDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:packageDebugResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:processDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:parseDebugLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:generateDebugRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:compileDebugKotlin NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:compileDebugShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-common:generateDebugAssets UP-TO-DATE
+> Task :jlatexmath:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:extractDeepLinksDebug UP-TO-DATE
+> Task :jlatexmath:compileDebugShaders NO-SOURCE
+> Task :jlatexmath:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:compileDebugLibraryResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:compileDebugShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-container:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:compileDebugShaders NO-SOURCE
+> Task :jlatexmath:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:compileDebugShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:compileDebugShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:compileDebugShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:compileDebugShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:compileDebugShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:compileDebugShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:compileDebugShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:compileDebugShaders NO-SOURCE
+> Task :jlatexmath:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-container:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-database:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-session:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-session:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:processDebugJavaRes NO-SOURCE
+> Task :jlatexmath:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TMessagesProj:buildCMakeDebug[arm64-v8a][tmessages.49]
+> Task :TMessagesProj:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TMessagesProj:mergeDebugNativeLibs UP-TO-DATE
+> Task :TMessagesProj:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj:generateDebugBuildConfig UP-TO-DATE
+> Task :TMessagesProj:generateDebugLocalizationUtilsJava UP-TO-DATE
+> Task :TMessagesProj:generateDebugResValues UP-TO-DATE
+> Task :TMessagesProj:generateDebugResources
+> Task :TMessagesProj:processDebugGoogleServices UP-TO-DATE
+> Task :TMessagesProj_App:generateAfatDebugTelegramStrings
+> Task :TMessagesProj_App:mergeAfatDebugNativeLibs UP-TO-DATE
+> Task :TMessagesProj_App:stripAfatDebugDebugSymbols UP-TO-DATE
+> Task :TMessagesProj_App:extractAfatDebugNativeDebugMetadata UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatDebugNativeDebugMetadata UP-TO-DATE
+> Task :TMessagesProj_App:generateAfatDebugResValues UP-TO-DATE
+> Task :TMessagesProj_App:processAfatDebugGoogleServices UP-TO-DATE
+> Task :TMessagesProj_App:generateAfatDebugResources UP-TO-DATE
+> Task :TMessagesProj_App:packageAfatDebugResources
+> Task :TMessagesProj_App:createAfatDebugCompatibleScreenManifests UP-TO-DATE
+> Task :TMessagesProj_App:extractDeepLinksAfatDebug UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatDebugShaders UP-TO-DATE
+> Task :TMessagesProj_App:compileAfatDebugShaders NO-SOURCE
+> Task :TMessagesProj_App:generateAfatDebugAssets UP-TO-DATE
+> Task :TMessagesProj_App:l8DexDesugarLibAfatDebug UP-TO-DATE
+> Task :TMessagesProj_App:processAfatDebugJavaRes NO-SOURCE
+> Task :TMessagesProj_App:checkAfatDebugDuplicateClasses UP-TO-DATE
+> Task :TMessagesProj_App:desugarAfatDebugFileDependencies UP-TO-DATE
+> Task :TMessagesProj_App:mergeExtDexAfatDebug UP-TO-DATE
+> Task :TMessagesProj_App:validateSigningAfatDebug UP-TO-DATE
+> Task :TMessagesProj_App:writeAfatDebugAppMetadata UP-TO-DATE
+> Task :TMessagesProj_App:writeAfatDebugSigningConfigVersions UP-TO-DATE
+> Task :TMessagesProj:packageDebugResources
+> Task :TMessagesProj:processDebugNavigationResources
+> Task :TMessagesProj:javaPreCompileDebug UP-TO-DATE
+> Task :TMessagesProj_App:mapAfatDebugSourceSetPaths
+> Task :TMessagesProj_App:processAfatDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj_App:compileAfatDebugNavigationResources UP-TO-DATE
+> Task :TMessagesProj:writeDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj:extractDeepLinksDebug UP-TO-DATE
+> Task :TMessagesProj:processDebugManifest UP-TO-DATE
+> Task :TMessagesProj:mergeDebugShaders UP-TO-DATE
+> Task :TMessagesProj:compileDebugShaders NO-SOURCE
+> Task :TMessagesProj:generateDebugAssets UP-TO-DATE
+> Task :TMessagesProj:mergeDebugAssets UP-TO-DATE
+> Task :TMessagesProj:processDebugJavaRes NO-SOURCE
+> Task :TMessagesProj:compileDebugLibraryResources
+> Task :TMessagesProj:parseDebugLocalResources
+> Task :TMessagesProj:generateDebugRFile
+> Task :TMessagesProj_App:checkAfatDebugAarMetadata UP-TO-DATE
+> Task :TMessagesProj_App:parseAfatDebugLocalResources
+> Task :TMessagesProj_App:processAfatDebugMainManifest UP-TO-DATE
+> Task :TMessagesProj_App:processAfatDebugManifest UP-TO-DATE
+> Task :TMessagesProj_App:processAfatDebugManifestForPackage UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatDebugJavaResource UP-TO-DATE
+
+> Task :TMessagesProj_App:mergeAfatDebugResources
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4380:4: Multiple substitutions specified in non-positional format of string resource string/Gift2ActiveAuctionsActiveBidActive. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4383:4: Multiple substitutions specified in non-positional format of string resource string/Gift2ActiveAuctionsActiveRound. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4434:4: Multiple substitutions specified in non-positional format of string resource string/Gift2AuctionInfo2_one. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4435:4: Multiple substitutions specified in non-positional format of string resource string/Gift2AuctionInfo2_other. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4438:4: Multiple substitutions specified in non-positional format of string resource string/Gift2AuctionInfoLearnMore2_one. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4439:4: Multiple substitutions specified in non-positional format of string resource string/Gift2AuctionInfoLearnMore2_other. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4440:4: Multiple substitutions specified in non-positional format of string resource string/Gift2AuctionInfo_one. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4441:4: Multiple substitutions specified in non-positional format of string resource string/Gift2AuctionInfo_other. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4486:4: Multiple substitutions specified in non-positional format of string resource string/Gift2AuctionsChangeRecipient2. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4496:4: Multiple substitutions specified in non-positional format of string resource string/Gift2AveragePriceHint. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4619:4: Multiple substitutions specified in non-positional format of string resource string/Gift2InfoOutConverted_one. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4620:4: Multiple substitutions specified in non-positional format of string resource string/Gift2InfoOutConverted_other. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4913:4: Multiple substitutions specified in non-positional format of string resource string/GiftAuctionInfo1Text_one. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:4914:4: Multiple substitutions specified in non-positional format of string resource string/GiftAuctionInfo1Text_other. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:5020:4: Multiple substitutions specified in non-positional format of string resource string/GiftOfferPayMulti. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:6677:4: Multiple substitutions specified in non-positional format of string resource string/NotificationTopicExceptionsDesctription_one. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:6678:4: Multiple substitutions specified in non-positional format of string resource string/NotificationTopicExceptionsDesctription_other. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:9299:4: Multiple substitutions specified in non-positional format of string resource string/StarRatingDescription1. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:9300:4: Multiple substitutions specified in non-positional format of string resource string/StarRatingDescription2. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:9301:4: Multiple substitutions specified in non-positional format of string resource string/StarRatingDescription3. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:9712:4: Multiple substitutions specified in non-positional format of string resource string/StoryAddedToAlbumTitle_one. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:9713:4: Multiple substitutions specified in non-positional format of string resource string/StoryAddedToAlbumTitle_other. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:9915:4: Multiple substitutions specified in non-positional format of string resource string/StoryRemovedFromAlbumTitle_one. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:9916:4: Multiple substitutions specified in non-positional format of string resource string/StoryRemovedFromAlbumTitle_other. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:9987:4: Multiple substitutions specified in non-positional format of string resource string/SuggestAPostBelowSubtitleStarsAndTime. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10041:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedAdmin1. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10042:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedAdmin1PastSimple. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10044:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedAdmin2. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10045:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedAdmin3Stars. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10046:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedAdmin3TON. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10047:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedAdmin4Stars. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10048:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedAdmin4TON. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10049:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedUser1. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10050:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedUser1PastSimple. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10053:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedUser3Stars. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10054:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedUser3TON. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10055:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedUser4Stars. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10056:4: Multiple substitutions specified in non-positional format of string resource string/SuggestionAgreementReachedUser4TON. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10487:4: Multiple substitutions specified in non-positional format of string resource string/UnconfirmedAuthMultipleFrom_one. Did you mean to add the formatted="false" attribute?
+/root/tg-client-code/telegram-src/TMessagesProj/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml:10488:4: Multiple substitutions specified in non-positional format of string resource string/UnconfirmedAuthMultipleFrom_other. Did you mean to add the formatted="false" attribute?
+
+> Task :TMessagesProj_App:processAfatDebugResources
+=== :TMessagesProj_App:processAfatDebugResources ===
+AAPT additional parameters:
+  --stable-ids
+  /root/tg-client-code/telegram-src/TMessagesProj_App/build/generated/telegramStrings/afatDebug/stable-ids.txt
+
+warn: removing resource org.telegram.messenger.beta:string/AddManyMembersAlertNamesText_few without required default value.
+warn: removing resource org.telegram.messenger.beta:string/AddManyMembersAlertNamesText_two without required default value.
+warn: removing resource org.telegram.messenger.beta:string/AddManyMembersAlertTitle_few without required default value.
+warn: removing resource org.telegram.messenger.beta:string/AddManyMembersAlertTitle_many without required default value.
+warn: removing resource org.telegram.messenger.beta:string/AddManyMembersAlertTitle_two without required default value.
+warn: removing resource org.telegram.messenger.beta:string/EmailPasswordConfirmText3 without required default value.
+warn: removing resource org.telegram.messenger.beta:string/Languages_few without required default value.
+warn: removing resource org.telegram.messenger.beta:string/Languages_many without required default value.
+warn: removing resource org.telegram.messenger.beta:string/Languages_two without required default value.
+warn: removing resource org.telegram.messenger.beta:string/Languages_zero without required default value.
+warn: removing resource org.telegram.messenger.beta:string/NoContactsYet without required default value.
+warn: removing resource org.telegram.messenger.beta:string/NoContactsYetLine1 without required default value.
+warn: removing resource org.telegram.messenger.beta:string/NoContactsYetLine2 without required default value.
+warn: removing resource org.telegram.messenger.beta:string/NoContactsYetLine3 without required default value.
+warn: removing resource org.telegram.messenger.beta:string/PleaseEnterFirstPassword without required default value.
+warn: removing resource org.telegram.messenger.beta:string/PleaseEnterPassword without required default value.
+warn: removing resource org.telegram.messenger.beta:string/ResetAccountButton without required default value.
+warn: removing resource org.telegram.messenger.beta:string/ResetMyAccountText without required default value.
+warn: removing resource org.telegram.messenger.beta:string/ShareTelegram without required default value.
+warn: removing resource org.telegram.messenger.beta:string/UseProxyForCalls without required default value.
+warn: removing resource org.telegram.messenger.beta:string/UseProxyForCallsInfo without required default value.
+warn: removing resource org.telegram.messenger.beta:string/WidgetPasscodeEnable2 without required default value.
+warn: removing resource org.telegram.messenger.beta:string/YourEmailCode without required default value.
+warn: removing resource org.telegram.messenger.beta:string/YourEmailCodeInfo without required default value.
+warn: removing resource org.telegram.messenger.beta:string/YourPasswordSuccessText without required default value.
+warn: removing resource org.telegram.messenger.beta:string/formatterMonthName without required default value.
+warn: removing resource org.telegram.messenger.beta:string/formatterMonthYear2 without required default value.
+
+
+> Task :TMessagesProj_App:generateAfatDebugLottieMeta
+R.raw.smile_to_sticker (0x7f0e0106) — fps=60, frames=12, mono=false
+R.raw.swipe_read (0x7f0e0138) — fps=60, frames=35, mono=false
+R.raw.msg_emoji_travel (0x7f0e00a0) — fps=60, frames=60, mono=false
+R.raw.tab_files_reverse (0x7f0e0148) — fps=60, frames=5, mono=false
+R.raw.auto_night_off (0x7f0e0002) — fps=60, frames=180, mono=false
+R.raw.camera (0x7f0e0017) — fps=60, frames=86, mono=false
+R.raw.stories_intro_go_back (0x7f0e0128) — fps=60, frames=40, mono=false
+R.raw.filter_no_chats (0x7f0e0050) — fps=60, frames=180, mono=false
+R.raw.tab_reply_reverse (0x7f0e0156) — fps=60, frames=5, mono=false
+R.raw.tab_gift_reverse (0x7f0e014c) — fps=60, frames=5, mono=false
+R.raw.voip_unmuted (0x7f0e01a0) — fps=60, frames=120, mono=false
+R.raw.giveaway_results (0x7f0e0065) — fps=60, frames=180, mono=false
+R.raw.star_reaction_effect5 (0x7f0e0120) — fps=60, frames=90, mono=false
+R.raw.roundcamera_flip (0x7f0e00fc) — fps=60, frames=30, mono=false
+R.raw.ic_boosts_replace (0x7f0e0070) — fps=60, frames=90, mono=false
+R.raw.plane_logo_plain (0x7f0e00c9) — fps=60, frames=54, mono=false
+R.raw.tab_calls (0x7f0e013e) — fps=60, frames=6, mono=false
+R.raw.android_30 (0x7f0e0001) — fps=60, frames=180, mono=false
+R.raw.swipe_community_ungroup (0x7f0e0133) — fps=60, frames=29, mono=false
+R.raw.utyan_empty2 (0x7f0e0180) — fps=60, frames=180, mono=false
+R.raw.filter_new (0x7f0e004f) — fps=60, frames=120, mono=false
+R.raw.msg_antispam (0x7f0e0098) — fps=60, frames=62, mono=false
+R.raw.star_premium_2 (0x7f0e0119) — fps=60, frames=50, mono=false
+R.raw.notify_toggle (0x7f0e00a9) — fps=60, frames=80, mono=false
+R.raw.double_icon (0x7f0e0041) — fps=60, frames=120, mono=false
+R.raw.tsv_setup_monkey_tracking (0x7f0e0178) — fps=60, frames=180, mono=false
+R.raw.tab_article_reverse (0x7f0e013d) — fps=60, frames=5, mono=false
+R.raw.imported (0x7f0e007f) — fps=60, frames=120, mono=false
+R.raw.fire_off (0x7f0e0053) — fps=60, frames=120, mono=false
+R.raw.topics_list (0x7f0e0168) — fps=60, frames=100, mono=false
+R.raw.channel_create (0x7f0e0025) — fps=60, frames=180, mono=false
+R.raw.mac_30 (0x7f0e0090) — fps=60, frames=180, mono=false
+R.raw.chats_archiveavatar (0x7f0e002a) — fps=60, frames=50, mono=false
+R.raw.caption_limit (0x7f0e0022) — fps=60, frames=90, mono=false
+R.raw.swipe_delete (0x7f0e0134) — fps=60, frames=38, mono=false
+R.raw.photo_marker (0x7f0e00c1) — fps=60, frames=30, mono=false
+R.raw.boosts (0x7f0e0008) — fps=60, frames=49, mono=false
+R.raw.dots_loading (0x7f0e0040) — fps=60, frames=60, mono=false
+R.raw.tab_reply (0x7f0e0155) — fps=60, frames=17, mono=false
+R.raw.msg_emoji_flags (0x7f0e009b) — fps=60, frames=60, mono=false
+R.raw.chats_unarchive (0x7f0e002f) — fps=60, frames=50, mono=false
+R.raw.edge_30 (0x7f0e0047) — fps=60, frames=180, mono=false
+R.raw.tab_models (0x7f0e014f) — fps=60, frames=17, mono=false
+R.raw.gift_upgrade (0x7f0e0062) — fps=60, frames=42, mono=false
+R.raw.msg_emoji_activities (0x7f0e0099) — fps=60, frames=60, mono=false
+R.raw.qr_matrix (0x7f0e00ec) — fps=60, frames=180, mono=false
+R.raw.tab_checklist_reverse (0x7f0e0141) — fps=60, frames=5, mono=false
+R.raw.tab_location_reverse (0x7f0e014e) — fps=60, frames=5, mono=false
+R.raw.options_to_search (0x7f0e00ab) — fps=60, frames=120, mono=false
+R.raw.chat_audio_record_delete_3 (0x7f0e0028) — fps=60, frames=40, mono=false
+R.raw.tab_files (0x7f0e0147) — fps=60, frames=17, mono=false
+R.raw.media_enlarge (0x7f0e0093) — fps=60, frames=20, mono=false
+R.raw.tab_colors_reverse (0x7f0e0143) — fps=60, frames=5, mono=false
+R.raw.media_forbidden (0x7f0e0094) — fps=60, frames=180, mono=false
+R.raw.gif_to_keyboard (0x7f0e005d) — fps=60, frames=12, mono=false
+R.raw.msg_emoji_cat (0x7f0e009a) — fps=60, frames=60, mono=false
+R.raw.copy (0x7f0e0039) — fps=60, frames=61, mono=false
+R.raw.story_repost (0x7f0e012e) — fps=60, frames=36, mono=false
+R.raw.photo_text_allign (0x7f0e00c6) — fps=60, frames=60, mono=false
+R.raw.gift (0x7f0e005f) — fps=60, frames=180, mono=false
+R.raw.utyan_saved_messages (0x7f0e0186) — fps=60, frames=180, mono=false
+R.raw.star_stroke (0x7f0e0121) — fps=60, frames=180, mono=false
+R.raw.ic_save_to_music (0x7f0e0077) — fps=60, frames=120, mono=false
+R.raw.smile_to_keyboard (0x7f0e0105) — fps=60, frames=12, mono=false
+R.raw.phone_stars_to_dots (0x7f0e00bd) — fps=60, frames=10, mono=false
+R.raw.profile_unmuting (0x7f0e00e6) — fps=60, frames=57, mono=false
+R.raw.tsv_setup_mail (0x7f0e0172) — fps=60, frames=160, mono=false
+R.raw.tsv_monkey_close (0x7f0e016e) — fps=60, frames=98, mono=false
+R.raw.sun_outline (0x7f0e0131) — fps=60, frames=36, mono=false
+R.raw.speed_1to15 (0x7f0e0110) — fps=60, frames=75, mono=false
+R.raw.passcode_lock_close (0x7f0e00ad) — fps=60, frames=39, mono=false
+R.raw.iphone_30 (0x7f0e0086) — fps=60, frames=180, mono=false
+R.raw.tab_wallet (0x7f0e015c) — fps=60, frames=17, mono=false
+R.raw.caption_show (0x7f0e0023) — fps=60, frames=20, mono=false
+R.raw.download_finish (0x7f0e0043) — fps=60, frames=41, mono=false
+R.raw.gift_crafting (0x7f0e0061) — fps=60, frames=47, mono=false
+R.raw.msg_emoji_other (0x7f0e009e) — fps=60, frames=60, mono=false
+R.raw.star_reaction (0x7f0e011a) — fps=60, frames=163, mono=false
+R.raw.permission_request_microphone (0x7f0e00b9) — fps=60, frames=60, mono=false
+R.raw.media_mute_unmute (0x7f0e0095) — fps=60, frames=44, mono=false
+R.raw.swipe_unread (0x7f0e013b) — fps=60, frames=36, mono=false
+R.raw.voice_outlined (0x7f0e018d) — fps=60, frames=24, mono=false
+R.raw.tab_chats (0x7f0e013f) — fps=60, frames=6, mono=false
+R.raw.utyan_empty (0x7f0e017f) — fps=60, frames=180, mono=false
+R.raw.msg_emoji_objects (0x7f0e009d) — fps=60, frames=60, mono=false
+R.raw.profile_leave (0x7f0e00e4) — fps=60, frames=48, mono=false
+R.raw.filters (0x7f0e0052) — fps=60, frames=180, mono=false
+R.raw.camera_flip2 (0x7f0e001b) — fps=60, frames=60, mono=false
+R.raw.video_stop (0x7f0e0189) — fps=60, frames=60, mono=false
+R.raw.tab_gallery (0x7f0e0149) — fps=60, frames=17, mono=false
+R.raw.sound_off (0x7f0e010a) — fps=60, frames=61, mono=false
+R.raw.code_laptop (0x7f0e0032) — fps=60, frames=64, mono=false
+R.raw.sandclock (0x7f0e00fe) — fps=60, frames=180, mono=false
+R.raw.chats_infotip (0x7f0e002d) — fps=60, frames=45, mono=false
+R.raw.story_bomb2 (0x7f0e012d) — fps=60, frames=51, mono=false
+R.raw.tab_music_reverse (0x7f0e0152) — fps=60, frames=5, mono=false
+R.raw.tab_emoji (0x7f0e0145) — fps=60, frames=18, mono=false
+R.raw.contacts_sync_off (0x7f0e0036) — fps=60, frames=120, mono=false
+R.raw.done (0x7f0e003f) — fps=60, frames=120, mono=false
+R.raw.dartloop (0x7f0e003b) — fps=60, frames=90, mono=false
+R.raw.mute_for (0x7f0e00a5) — fps=60, frames=61, mono=false
+R.raw.ic_unmute (0x7f0e0079) — fps=60, frames=65, mono=false
+R.raw.payment_success (0x7f0e00af) — fps=60, frames=63, mono=false
+R.raw.tsv_setup_monkey_close_and_peek (0x7f0e0173) — fps=60, frames=33, mono=false
+R.raw.msg_emoji_food (0x7f0e009c) — fps=60, frames=60, mono=false
+R.raw.wallet_allset (0x7f0e01a1) — fps=60, frames=180, mono=false
+R.raw.star_reaction_effect4 (0x7f0e011f) — fps=60, frames=90, mono=false
+R.raw.download_progress (0x7f0e0044) — fps=60, frames=50, mono=false
+R.raw.msg_story_keep (0x7f0e00a3) — fps=60, frames=46, mono=false
+R.raw.wallet_science (0x7f0e01a7) — fps=60, frames=180, mono=false
+R.raw.phone_dots_to_stars (0x7f0e00bb) — fps=60, frames=10, mono=false
+R.raw.chat_audio_record_delete (0x7f0e0026) — fps=60, frames=52, mono=false
+R.raw.email_check_inbox (0x7f0e0048) — fps=60, frames=141, mono=false
+R.raw.error (0x7f0e004b) — fps=60, frames=120, mono=false
+R.raw.ic_pin (0x7f0e0074) — fps=60, frames=120, mono=false
+R.raw.name_hide (0x7f0e00a6) — fps=60, frames=20, mono=false
+R.raw.topics_top (0x7f0e016a) — fps=60, frames=157, mono=false
+R.raw.calls_log (0x7f0e0016) — fps=60, frames=120, mono=false
+R.raw.star_reaction_effect2 (0x7f0e011d) — fps=60, frames=83, mono=false
+R.raw.photo_eraser (0x7f0e00c0) — fps=60, frames=30, mono=false
+R.raw.import_progress (0x7f0e007e) — fps=60, frames=57, mono=false
+R.raw.convert_video (0x7f0e0038) — fps=60, frames=38, mono=false
+R.raw.biz_links (0x7f0e0004) — fps=60, frames=125, mono=false
+R.raw.group_pip_delete_icon (0x7f0e0068) — fps=60, frames=66, mono=false
+R.raw.addone_icon (0x7f0e0000) — fps=60, frames=120, mono=false
+R.raw.photo_neon (0x7f0e00c2) — fps=60, frames=30, mono=false
+R.raw.fragment_username (0x7f0e005c) — fps=60, frames=180, mono=false
+R.raw.qr_login (0x7f0e00ea) — fps=60, frames=360, mono=false
+R.raw.tab_symbols_reverse (0x7f0e015b) — fps=60, frames=5, mono=false
+R.raw.caption_down (0x7f0e0020) — fps=60, frames=35, mono=false
+R.raw.bot_webview_sheet_to_cross (0x7f0e0009) — fps=60, frames=22, mono=false
+R.raw.voip_muted (0x7f0e019a) — fps=60, frames=120, mono=false
+R.raw.silent_unmute (0x7f0e0103) — fps=60, frames=58, mono=false
+R.raw.profile_muting (0x7f0e00e5) — fps=60, frames=37, mono=false
+R.raw.voip_allow_talk (0x7f0e0193) — fps=60, frames=52, mono=false
+R.raw.seek_speed_hint (0x7f0e0100) — fps=60, frames=42, mono=false
+R.raw.biz_clock (0x7f0e0003) — fps=60, frames=180, mono=false
+R.raw.fragment (0x7f0e005b) — fps=60, frames=59, mono=false
+R.raw.qr_code_logo (0x7f0e00e8) — fps=60, frames=54, mono=false
+R.raw.info (0x7f0e0081) — fps=60, frames=45, mono=false
+R.raw.import_loop (0x7f0e007d) — fps=60, frames=180, mono=false
+R.raw.keyboard_to_gif (0x7f0e0087) — fps=60, frames=12, mono=false
+R.raw.contact_check (0x7f0e0035) — fps=60, frames=45, mono=false
+R.raw.unlock_icon (0x7f0e017a) — fps=60, frames=120, mono=false
+R.raw.phone_flash_call (0x7f0e00bc) — fps=60, frames=64, mono=false
+R.raw.hand_2 (0x7f0e006a) — fps=60, frames=540, mono=false
+R.raw.tag_icon_3 (0x7f0e015e) — fps=60, frames=57, mono=false
+R.raw.hint_swipe_reply (0x7f0e006d) — fps=60, frames=120, mono=false
+R.raw.story_bomb1 (0x7f0e012c) — fps=60, frames=44, mono=false
+R.raw.not_available (0x7f0e00a8) — fps=60, frames=180, mono=false
+R.raw.chats_archived (0x7f0e002b) — fps=60, frames=45, mono=false
+R.raw.tab_poll_reverse (0x7f0e0154) — fps=60, frames=5, mono=false
+R.raw.ticks_single (0x7f0e0163) — fps=60, frames=25, mono=false
+R.raw.wallet_perfect (0x7f0e01a6) — fps=60, frames=120, mono=false
+R.raw.chats_hide (0x7f0e002c) — fps=60, frames=50, mono=false
+R.raw.speed_2to1 (0x7f0e0111) — fps=60, frames=72, mono=false
+R.raw.ic_unban (0x7f0e0078) — fps=60, frames=120, mono=false
+R.raw.position_below (0x7f0e00cc) — fps=60, frames=20, mono=false
+R.raw.utyan_cache (0x7f0e017b) — fps=60, frames=180, mono=false
+R.raw.utyan_newborn (0x7f0e0183) — fps=60, frames=180, mono=false
+R.raw.speed_fast (0x7f0e0112) — fps=60, frames=75, mono=false
+R.raw.keyboard_to_sticker (0x7f0e0089) — fps=60, frames=12, mono=false
+R.raw.timer_toast (0x7f0e0165) — fps=60, frames=41, mono=false
+R.raw.folder_share (0x7f0e0059) — fps=60, frames=91, mono=false
+R.raw.ipad_30 (0x7f0e0085) — fps=60, frames=180, mono=false
+R.raw.stars_topup (0x7f0e0123) — fps=60, frames=109, mono=false
+R.raw.write_contacts_fab_icon (0x7f0e01ae) — fps=60, frames=49, mono=false
+R.raw.sticker_to_smile (0x7f0e0127) — fps=60, frames=12, mono=false
+R.raw.monetize (0x7f0e0097) — fps=60, frames=45, mono=false
+R.raw.wallet_congrats (0x7f0e01a2) — fps=60, frames=180, mono=false
+R.raw.tab_music (0x7f0e0151) — fps=60, frames=17, mono=false
+R.raw.star_fill (0x7f0e0117) — fps=60, frames=180, mono=false
+R.raw.import_check (0x7f0e007b) — fps=60, frames=13, mono=false
+R.raw.sound_download (0x7f0e0108) — fps=60, frames=66, mono=false
+R.raw.camera_outline (0x7f0e001d) — fps=60, frames=86, mono=false
+R.raw.silent_mute (0x7f0e0102) — fps=60, frames=58, mono=false
+R.raw.voice_mini (0x7f0e018b) — fps=60, frames=172, mono=false
+R.raw.speed_slow (0x7f0e0114) — fps=60, frames=72, mono=false
+R.raw.msg_stories_archive (0x7f0e00a1) — fps=60, frames=27, mono=false
+R.raw.swipe_unpin (0x7f0e013a) — fps=60, frames=48, mono=false
+R.raw.speed_15to2 (0x7f0e010f) — fps=60, frames=75, mono=false
+R.raw.chats_archive (0x7f0e0029) — fps=60, frames=50, mono=false
+R.raw.tab_sticker (0x7f0e0158) — fps=60, frames=17, mono=false
+R.raw.ic_admin (0x7f0e006e) — fps=60, frames=120, mono=false
+R.raw.tab_checklist (0x7f0e0140) — fps=60, frames=17, mono=false
+R.raw.transcribe (0x7f0e016b) — fps=60, frames=180, mono=false
+R.raw.db_migration_placeholder (0x7f0e003c) — fps=60, frames=180, mono=false
+R.raw.fire_on (0x7f0e0054) — fps=60, frames=120, mono=false
+R.raw.statistic_preload (0x7f0e0125) — fps=60, frames=180, mono=false
+R.raw.tab_gift (0x7f0e014b) — fps=60, frames=17, mono=false
+R.raw.tsv_setup_monkey_idle2 (0x7f0e0176) — fps=60, frames=30, mono=false
+R.raw.photo_blur (0x7f0e00bf) — fps=60, frames=30, mono=false
+R.raw.large_message_lock (0x7f0e008b) — fps=60, frames=180, mono=false
+R.raw.msg_translate (0x7f0e00a4) — fps=60, frames=180, mono=false
+R.raw.ic_delete (0x7f0e0071) — fps=60, frames=66, mono=false
+R.raw.diceloop (0x7f0e003e) — fps=60, frames=60, mono=false
+R.raw.call_mute (0x7f0e0015) — fps=60, frames=60, mono=false
+R.raw.media_shrink (0x7f0e0096) — fps=60, frames=20, mono=false
+R.raw.folder_out (0x7f0e0058) — fps=60, frames=54, mono=false
+R.raw.wallet_diamond_white (0x7f0e01a4) — fps=60, frames=121, mono=false
+R.raw.rate (0x7f0e00ef) — fps=60, frames=90, mono=false
+R.raw.ic_ban (0x7f0e006f) — fps=60, frames=120, mono=false
+R.raw.swipe_disabled (0x7f0e0135) — fps=60, frames=30, mono=false
+R.raw.camera_wait (0x7f0e001f) — fps=60, frames=300, mono=false
+R.raw.incoming_calls (0x7f0e0080) — fps=60, frames=90, mono=false
+R.raw.transcribe_out (0x7f0e016d) — fps=60, frames=20, mono=false
+R.raw.tab_contacts (0x7f0e0144) — fps=60, frames=6, mono=false
+R.raw.gift_broken (0x7f0e0060) — fps=60, frames=180, mono=false
+R.raw.chats_swipearchive (0x7f0e002e) — fps=60, frames=120, mono=false
+R.raw.swipe_pin (0x7f0e0137) — fps=60, frames=31, mono=false
+R.raw.position_above (0x7f0e00cb) — fps=60, frames=20, mono=false
+R.raw.caption_hide (0x7f0e0021) — fps=60, frames=20, mono=false
+R.raw.roundcamera_flash_on (0x7f0e00fb) — fps=60, frames=30, mono=false
+R.raw.gif_to_smile (0x7f0e005e) — fps=60, frames=12, mono=false
+R.raw.transcribe_in (0x7f0e016c) — fps=60, frames=20, mono=false
+R.raw.folder_in (0x7f0e0057) — fps=60, frames=57, mono=false
+R.raw.permission_request_camera (0x7f0e00b5) — fps=60, frames=60, mono=false
+R.raw.utyan_change_number (0x7f0e017d) — fps=60, frames=180, mono=false
+R.raw.utyan_private (0x7f0e0185) — fps=60, frames=180, mono=false
+R.raw.voip_invite (0x7f0e0199) — fps=60, frames=120, mono=false
+R.raw.fire_once (0x7f0e0055) — fps=60, frames=120, mono=false
+R.raw.bubble (0x7f0e000b) — fps=60, frames=180, mono=false
+R.raw.smile_to_gif (0x7f0e0104) — fps=60, frames=12, mono=false
+R.raw.utyan_gallery (0x7f0e0181) — fps=60, frames=180, mono=false
+R.raw.saved_messages (0x7f0e00ff) — fps=60, frames=56, mono=false
+R.raw.swipe_unmute (0x7f0e0139) — fps=60, frames=35, mono=false
+R.raw.custom_emoji_reaction (0x7f0e003a) — fps=60, frames=89, mono=false
+R.raw.utyan_call (0x7f0e017c) — fps=60, frames=180, mono=false
+R.raw.name_show (0x7f0e00a7) — fps=60, frames=20, mono=false
+R.raw.ubuntu_30 (0x7f0e0179) — fps=60, frames=180, mono=false
+R.raw.tab_article (0x7f0e013c) — fps=60, frames=16, mono=false
+R.raw.star_reaction_click (0x7f0e011b) — fps=60, frames=125, mono=false
+R.raw.tsv_setup_intro (0x7f0e0171) — fps=60, frames=180, mono=false
+R.raw.large_lastseen (0x7f0e008a) — fps=60, frames=180, mono=false
+R.raw.email_setup_heart (0x7f0e0049) — fps=60, frames=180, mono=false
+R.raw.voip_filled (0x7f0e0198) — fps=60, frames=404, mono=false
+R.raw.ic_save_to_gifs (0x7f0e0076) — fps=60, frames=90, mono=false
+R.raw.photo_pen (0x7f0e00c3) — fps=60, frames=30, mono=false
+R.raw.stories_intro_go_to_next (0x7f0e012a) — fps=60, frames=39, mono=false
+R.raw.voice_and_video (0x7f0e018a) — fps=60, frames=60, mono=false
+R.raw.tsv_setup_monkey_peek (0x7f0e0177) — fps=60, frames=33, mono=false
+R.raw.passcode_lock (0x7f0e00ac) — fps=60, frames=71, mono=false
+R.raw.tab_colors (0x7f0e0142) — fps=60, frames=17, mono=false
+R.raw.gigagroup_convert (0x7f0e0064) — fps=60, frames=120, mono=false
+R.raw.permission_request_location (0x7f0e00b8) — fps=60, frames=60, mono=false
+R.raw.chrome_30 (0x7f0e0031) — fps=60, frames=180, mono=false
+R.raw.speaker_to_bt (0x7f0e010e) — fps=60, frames=60, mono=false
+R.raw.utyan_passcode (0x7f0e0184) — fps=60, frames=180, mono=false
+R.raw.topics (0x7f0e0167) — fps=60, frames=180, mono=false
+R.raw.wallet_gift_trash (0x7f0e01a5) — fps=60, frames=120, mono=false
+R.raw.contacts_sync_on (0x7f0e0037) — fps=60, frames=120, mono=false
+R.raw.voice_muted (0x7f0e018c) — fps=60, frames=29, mono=false
+R.raw.chat_audio_record_delete_2 (0x7f0e0027) — fps=60, frames=52, mono=false
+R.raw.bt_to_speaker (0x7f0e000a) — fps=60, frames=60, mono=false
+R.raw.stars_send (0x7f0e0122) — fps=60, frames=140, mono=false
+R.raw.player_prev (0x7f0e00ca) — fps=60, frames=25, mono=false
+R.raw.tsv_setup_hint (0x7f0e0170) — fps=60, frames=180, mono=false
+R.raw.filter_reorder (0x7f0e0051) — fps=60, frames=61, mono=false
+R.raw.keyboard_to_smile (0x7f0e0088) — fps=60, frames=12, mono=false
+R.raw.tab_settings (0x7f0e0157) — fps=60, frames=6, mono=false
+R.raw.sms_incoming_info (0x7f0e0107) — fps=60, frames=90, mono=false
+R.raw.premium_gift (0x7f0e00cd) — fps=60, frames=180, mono=false
+R.raw.emoji_stars (0x7f0e004a) — fps=60, frames=180, mono=false
+R.raw.voice_to_text (0x7f0e018f) — fps=60, frames=120, mono=false
+R.raw.safari_30 (0x7f0e00fd) — fps=60, frames=180, mono=false
+R.raw.voice_outlined2 (0x7f0e018e) — fps=60, frames=84, mono=false
+R.raw.star_reaction_effect3 (0x7f0e011e) — fps=60, frames=85, mono=false
+R.raw.sound_on (0x7f0e010b) — fps=60, frames=61, mono=false
+R.raw.tab_wallet_reverse (0x7f0e015d) — fps=60, frames=5, mono=false
+R.raw.permission_request_apk (0x7f0e00b4) — fps=60, frames=180, mono=false
+R.raw.cake (0x7f0e0013) — fps=60, frames=180, mono=false
+R.raw.camera_flip (0x7f0e001a) — fps=60, frames=40, mono=false
+R.raw.roundcamera_flash_off (0x7f0e00fa) — fps=60, frames=30, mono=false
+R.raw.tab_gallery_reverse (0x7f0e014a) — fps=60, frames=5, mono=false
+R.raw.photo_spoiler (0x7f0e00c4) — fps=60, frames=180, mono=false
+R.raw.call_accept (0x7f0e0014) — fps=60, frames=180, mono=false
+R.raw.photo_arrow (0x7f0e00be) — fps=60, frames=30, mono=false
+R.raw.phone_dots (0x7f0e00ba) — fps=60, frames=60, mono=false
+R.raw.stories_intro_go_forward (0x7f0e0129) — fps=60, frames=38, mono=false
+R.raw.gram (0x7f0e0066) — fps=60, frames=20, mono=false
+R.raw.forward (0x7f0e005a) — fps=60, frames=47, mono=false
+R.raw.ic_save_to_gallery (0x7f0e0075) — fps=60, frames=65, mono=false
+R.raw.caption_up (0x7f0e0024) — fps=60, frames=35, mono=false
+R.raw.voip_record_saved (0x7f0e019c) — fps=60, frames=56, mono=false
+R.raw.import_finish (0x7f0e007c) — fps=60, frames=120, mono=false
+R.raw.permission_request_folder (0x7f0e00b7) — fps=60, frames=240, mono=false
+R.raw.utyan_schedule (0x7f0e0187) — fps=60, frames=180, mono=false
+R.raw.gram_reverse (0x7f0e0067) — fps=60, frames=10, mono=false
+R.raw.profile_voicechat (0x7f0e00e7) — fps=60, frames=48, mono=false
+R.raw.linux_30 (0x7f0e008e) — fps=60, frames=180, mono=false
+R.raw.biz_map (0x7f0e0005) — fps=60, frames=180, mono=false
+R.raw.qr_resistance_dog (0x7f0e00ed) — fps=60, frames=180, mono=false
+R.raw.ticks_double (0x7f0e0162) — fps=60, frames=54, mono=false
+R.raw.photo_suggest_icon (0x7f0e00c5) — fps=60, frames=85, mono=false
+R.raw.speaker (0x7f0e010d) — fps=60, frames=34, mono=false
+R.raw.tab_poll (0x7f0e0153) — fps=60, frames=17, mono=false
+R.raw.stories_intro_pause (0x7f0e012b) — fps=60, frames=46, mono=false
+R.raw.e_hand_2 (0x7f0e0046) — fps=60, frames=180, mono=false
+R.raw.raised_hand (0x7f0e00ee) — fps=60, frames=90, mono=false
+R.raw.chats_unhide (0x7f0e0030) — fps=60, frames=50, mono=false
+R.raw.tsv_setup_monkey_idle1 (0x7f0e0175) — fps=60, frames=30, mono=false
+R.raw.utyan_gigagroup (0x7f0e0182) — fps=60, frames=150, mono=false
+R.raw.timer_3 (0x7f0e0164) — fps=60, frames=66, mono=false
+R.raw.tab_emoji_reverse (0x7f0e0146) — fps=60, frames=5, mono=false
+R.raw.windows_30 (0x7f0e01ad) — fps=60, frames=180, mono=false
+R.raw.wallet_diamond_blue (0x7f0e01a3) — fps=60, frames=121, mono=false
+R.raw.topics_tabs (0x7f0e0169) — fps=60, frames=100, mono=false
+R.raw.permission_request_contacts (0x7f0e00b6) — fps=60, frames=120, mono=false
+R.raw.tab_symbols (0x7f0e015a) — fps=60, frames=17, mono=false
+R.raw.msg_emoji_smiles (0x7f0e009f) — fps=60, frames=60, mono=false
+R.raw.firefox_30 (0x7f0e0056) — fps=60, frames=180, mono=false
+R.raw.ic_download (0x7f0e0072) — fps=60, frames=120, mono=false
+R.raw.sun (0x7f0e0130) — fps=60, frames=36, mono=false
+R.raw.tsv_setup_email_sent (0x7f0e016f) — fps=60, frames=180, mono=false
+R.raw.swipe_mute (0x7f0e0136) — fps=60, frames=35, mono=false
+R.raw.passkey (0x7f0e00ae) — fps=60, frames=157, mono=false
+R.raw.speed_limit (0x7f0e0113) — fps=60, frames=51, mono=false
+R.raw.tab_sticker_reverse (0x7f0e0159) — fps=60, frames=5, mono=false
+R.raw.shared_link_enter (0x7f0e0101) — fps=60, frames=43, mono=false
+R.raw.utyan_draw (0x7f0e017e) — fps=60, frames=180, mono=false
+R.raw.large_readtime (0x7f0e008c) — fps=60, frames=180, mono=false
+R.raw.star_reaction_effect1 (0x7f0e011c) — fps=60, frames=90, mono=false
+R.raw.tab_models_reverse (0x7f0e0150) — fps=60, frames=5, mono=false
+R.raw.hand_1 (0x7f0e0069) — fps=60, frames=720, mono=false
+R.raw.utyan_streaming (0x7f0e0188) — fps=60, frames=180, mono=false
+R.raw.report_police (0x7f0e00f3) — fps=60, frames=180, mono=false
+R.raw.linkbroken (0x7f0e008d) — fps=60, frames=120, mono=false
+R.raw.download_arrow (0x7f0e0042) — fps=60, frames=30, mono=false
+R.raw.sticker_to_keyboard (0x7f0e0126) — fps=60, frames=12, mono=false
+R.raw.msg_stories_saved (0x7f0e00a2) — fps=60, frames=40, mono=false
+R.raw.tsv_setup_monkey_close_and_peek_to_idle (0x7f0e0174) — fps=60, frames=33, mono=false
+R.raw.ic_unpin (0x7f0e007a) — fps=60, frames=120, mono=false
+R.raw.ic_mute (0x7f0e0073) — fps=60, frames=66, mono=false
+R.raw.voip_record_start (0x7f0e019d) — fps=60, frames=64, mono=false
+R.raw.tab_location (0x7f0e014d) — fps=60, frames=17, mono=false
+
+> Task :TMessagesProj_App:generateAfatDebugStringResourceIdsAsset
+Generated 11698 string resource IDs: /root/tg-client-code/telegram-src/TMessagesProj_App/build/generated/stringResourceIds/afatDebug/assets/string_resource_ids.bin
+Size: 93588 bytes
+
+> Task :TMessagesProj_App:mergeAfatDebugAssets
+> Task :TMessagesProj_App:compressAfatDebugAssets
+> Task :TMessagesProj:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :TMessagesProj:bundleLibCompileToJarDebug
+> Task :TMessagesProj:bundleLibRuntimeToJarDebug
+> Task :TMessagesProj_App:compileAfatDebugJavaWithJavac
+> Task :TMessagesProj_App:dexBuilderAfatDebug
+> Task :TMessagesProj_App:mergeProjectDexAfatDebug
+> Task :TMessagesProj_App:mergeLibDexAfatDebug
+> Task :TMessagesProj_App:packageAfatDebug
+> Task :TMessagesProj_App:createAfatDebugApkListingFileRedirect UP-TO-DATE
+> Task :TMessagesProj_App:assembleAfatDebug
+> Task :TMessagesProj_App:assembleDebug
+
+[Incubating] Problems report is available at: file:///root/tg-client-code/telegram-src/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 37s
+301 actionable tasks: 27 executed, 274 up-to-date

@@ -1,0 +1,516 @@
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+
+> Configure project :jlatexmath
+WARNING: The option setting 'android.r8.optimizedResourceShrinking=true' is experimental.
+The current default is 'false'.
+WARNING: The option setting 'android.defaults.buildfeatures.buildconfig=true' is deprecated.
+The current default is 'false'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+To keep using this feature, add the following to your module-level build.gradle files:
+    android.buildFeatures.buildConfig = true
+or from Android Studio, click: `Refactor` > `Migrate BuildConfig to Gradle Build Files`.
+
+> Configure project :TMessagesProj_AppHuawei
+--W- Build Environment: AGConnect plugin version is: 1.9.1.301, Gradle version is: 8.13, Android Plugin version is: 8.13.2
+--I- Using the AGConnect-Config file: /root/tg-client-code/telegram-src/TMessagesProj_AppHuawei/agconnect-services.json
+--W- The variant: afatDebug, Use the json file: /root/tg-client-code/telegram-src/TMessagesProj_AppHuawei/agconnect-services.json
+--I- Using the AGConnect-Config file: /root/tg-client-code/telegram-src/TMessagesProj_AppHuawei/agconnect-services.json
+--W- The variant: afatRelease, Use the json file: /root/tg-client-code/telegram-src/TMessagesProj_AppHuawei/agconnect-services.json
+
+> Task :jlatexmath:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:preReleaseBuild UP-TO-DATE
+> Task :jlatexmath:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj:checkVisibility
+> Task :TMessagesProj:preBuild
+> Task :TMessagesProj:preStandaloneBuild
+> Task :jlatexmath:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :jlatexmath:mergeReleaseNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-database:mergeReleaseNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-common:mergeReleaseNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-container:mergeReleaseNativeLibs NO-SOURCE
+> Task :jlatexmath:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:preBuild UP-TO-DATE
+> Task :TMessagesProj_App:preBuild UP-TO-DATE
+> Task :TMessagesProj_App:preAfatReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:mergeReleaseNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:mergeReleaseNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:mergeReleaseNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:mergeReleaseNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:preBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:preReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:mergeReleaseNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:mergeReleaseNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-session:mergeReleaseNativeLibs NO-SOURCE
+> Task :jlatexmath:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:mergeReleaseNativeLibs NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-session:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:prepareReleaseArtProfile UP-TO-DATE
+> Task :jlatexmath:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:generateReleaseResValues UP-TO-DATE
+> Task :jlatexmath:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:generateReleaseResources UP-TO-DATE
+> Task :jlatexmath:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:packageReleaseResources UP-TO-DATE
+> Task :jlatexmath:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:processReleaseNavigationResources UP-TO-DATE
+> Task :jlatexmath:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:parseReleaseLocalResources UP-TO-DATE
+> Task :jlatexmath:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:generateReleaseRFile UP-TO-DATE
+> Task :jlatexmath:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:javaPreCompileRelease UP-TO-DATE
+> Task :jlatexmath:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:generateReleaseResources UP-TO-DATE
+> Task :jlatexmath:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj:configureCMakeRelWithDebInfo[arm64-v8a]
+> Task :jlatexmath:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:compileReleaseAidl UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:generateReleaseRFile UP-TO-DATE
+> Task :jlatexmath:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :jlatexmath:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:compileReleaseKotlin NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :jlatexmath:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :jlatexmath:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:writeReleaseAarMetadata UP-TO-DATE
+> Task :jlatexmath:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:processReleaseManifest UP-TO-DATE
+> Task :jlatexmath:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:processReleaseJavaRes NO-SOURCE
+> Task :jlatexmath:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-session:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-container:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-session:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-common:mergeReleaseShaders UP-TO-DATE
+> Task :jlatexmath:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:compileReleaseShaders NO-SOURCE
+> Task :jlatexmath:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-container:mergeReleaseShaders UP-TO-DATE
+> Task :jlatexmath:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-database:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-container:generateReleaseAssets UP-TO-DATE
+> Task :jlatexmath:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-common:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-database:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-container:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_App:checkAfatReleaseDuplicateClasses UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-datasource:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-decoder-ffmpeg:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_App:generateAfatReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj_App:javaPreCompileAfatRelease UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-extractor:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-session:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-dash:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_Modules:media3:media-lib-exoplayer-hls:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_App:generateAfatReleaseTelegramStrings UP-TO-DATE
+> Task :TMessagesProj_App:generateAfatReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_App:processAfatReleaseGoogleServices UP-TO-DATE
+> Task :TMessagesProj_App:generateAfatReleaseResources UP-TO-DATE
+> Task :TMessagesProj_App:packageAfatReleaseResources UP-TO-DATE
+> Task :TMessagesProj_App:createAfatReleaseCompatibleScreenManifests UP-TO-DATE
+> Task :TMessagesProj_App:extractDeepLinksAfatRelease UP-TO-DATE
+> Task :TMessagesProj_App:extractProguardFiles UP-TO-DATE
+> Task :TMessagesProj_App:processAfatReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_App:mergeAfatReleaseStartupProfile UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_App:compileAfatReleaseShaders NO-SOURCE
+> Task :TMessagesProj_App:generateAfatReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_App:extractAfatReleaseVersionControlInfo
+> Task :TMessagesProj_App:collectAfatReleaseDependencies UP-TO-DATE
+> Task :TMessagesProj_App:sdkAfatReleaseDependencyData UP-TO-DATE
+> Task :TMessagesProj_App:validateSigningAfatRelease UP-TO-DATE
+> Task :TMessagesProj_App:writeAfatReleaseAppMetadata UP-TO-DATE
+> Task :TMessagesProj_App:writeAfatReleaseSigningConfigVersions UP-TO-DATE
+> Task :TMessagesProj_App:preBundleAfatReleaseBuild UP-TO-DATE
+> Task :TMessagesProj_App:mergeBundleAfatReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj_App:checkBundleAfatReleaseDuplicateClasses UP-TO-DATE
+> Task :TMessagesProj_App:generateBundleAfatReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj_App:javaPreCompileBundleAfatRelease UP-TO-DATE
+> Task :TMessagesProj_App:generateBundleAfatReleaseTelegramStrings UP-TO-DATE
+> Task :TMessagesProj_App:generateBundleAfatReleaseResValues UP-TO-DATE
+> Task :TMessagesProj_App:processBundleAfatReleaseGoogleServices UP-TO-DATE
+> Task :TMessagesProj_App:generateBundleAfatReleaseResources UP-TO-DATE
+> Task :TMessagesProj_App:packageBundleAfatReleaseResources UP-TO-DATE
+> Task :TMessagesProj_App:createBundleAfatReleaseCompatibleScreenManifests UP-TO-DATE
+> Task :TMessagesProj_App:extractDeepLinksBundleAfatRelease UP-TO-DATE
+> Task :TMessagesProj_App:processBundleAfatReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj_App:mergeBundleAfatReleaseStartupProfile UP-TO-DATE
+> Task :TMessagesProj_App:mergeBundleAfatReleaseShaders UP-TO-DATE
+> Task :TMessagesProj_App:compileBundleAfatReleaseShaders NO-SOURCE
+> Task :TMessagesProj_App:generateBundleAfatReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_App:extractBundleAfatReleaseVersionControlInfo
+> Task :TMessagesProj_App:collectBundleAfatReleaseDependencies UP-TO-DATE
+> Task :TMessagesProj_App:sdkBundleAfatReleaseDependencyData UP-TO-DATE
+> Task :TMessagesProj_App:validateSigningBundleAfatRelease UP-TO-DATE
+> Task :TMessagesProj_App:writeBundleAfatReleaseAppMetadata UP-TO-DATE
+> Task :TMessagesProj_App:writeBundleAfatReleaseSigningConfigVersions UP-TO-DATE
+> Task :TMessagesProj:buildCMakeRelWithDebInfo[arm64-v8a][tmessages.49]
+> Task :TMessagesProj:preReleaseBuild
+> Task :TMessagesProj:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :TMessagesProj:mergeReleaseNativeLibs UP-TO-DATE
+> Task :TMessagesProj:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :TMessagesProj:prepareReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj:generateReleaseBuildConfig UP-TO-DATE
+> Task :TMessagesProj:generateReleaseLocalizationUtilsJava UP-TO-DATE
+> Task :TMessagesProj:generateReleaseResValues UP-TO-DATE
+> Task :TMessagesProj:generateReleaseResources UP-TO-DATE
+> Task :TMessagesProj:processReleaseGoogleServices UP-TO-DATE
+> Task :TMessagesProj:packageReleaseResources UP-TO-DATE
+> Task :TMessagesProj:processReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatReleaseNativeLibs UP-TO-DATE
+> Task :TMessagesProj:parseReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_App:stripAfatReleaseDebugSymbols UP-TO-DATE
+> Task :TMessagesProj_App:extractAfatReleaseNativeDebugMetadata UP-TO-DATE
+> Task :TMessagesProj:generateReleaseRFile UP-TO-DATE
+> Task :TMessagesProj:javaPreCompileRelease UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatReleaseNativeDebugMetadata UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_App:expandAfatReleaseL8ArtProfileWildcards UP-TO-DATE
+> Task :TMessagesProj_App:processAfatReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_App:compileAfatReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_App:mapAfatReleaseSourceSetPaths UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatReleaseResources UP-TO-DATE
+> Task :TMessagesProj_App:parseAfatReleaseLocalResources UP-TO-DATE
+> Task :TMessagesProj_App:mergeBundleAfatReleaseNativeLibs UP-TO-DATE
+> Task :TMessagesProj_App:stripBundleAfatReleaseDebugSymbols UP-TO-DATE
+> Task :TMessagesProj_App:extractBundleAfatReleaseNativeDebugMetadata UP-TO-DATE
+> Task :TMessagesProj_App:mergeBundleAfatReleaseNativeDebugMetadata UP-TO-DATE
+> Task :TMessagesProj_App:mergeBundleAfatReleaseArtProfile UP-TO-DATE
+> Task :TMessagesProj_App:expandBundleAfatReleaseL8ArtProfileWildcards UP-TO-DATE
+> Task :TMessagesProj_App:processBundleAfatReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_App:compileBundleAfatReleaseNavigationResources UP-TO-DATE
+> Task :TMessagesProj_App:mapBundleAfatReleaseSourceSetPaths UP-TO-DATE
+> Task :TMessagesProj_App:mergeBundleAfatReleaseResources UP-TO-DATE
+> Task :TMessagesProj_App:parseBundleAfatReleaseLocalResources UP-TO-DATE
+
+> Task :TMessagesProj:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :TMessagesProj:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :TMessagesProj:writeReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj:extractDeepLinksRelease UP-TO-DATE
+> Task :TMessagesProj:processReleaseManifest UP-TO-DATE
+> Task :TMessagesProj:processReleaseJavaRes NO-SOURCE
+> Task :TMessagesProj:mergeReleaseShaders UP-TO-DATE
+> Task :TMessagesProj:compileReleaseShaders NO-SOURCE
+> Task :TMessagesProj:generateReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_App:checkAfatReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj:mergeReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_App:processAfatReleaseMainManifest UP-TO-DATE
+> Task :TMessagesProj_App:processAfatReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_App:processAfatReleaseManifestForPackage UP-TO-DATE
+> Task :TMessagesProj_App:processAfatReleaseResources UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatReleaseJavaResource UP-TO-DATE
+> Task :TMessagesProj_App:generateAfatReleaseLottieMeta UP-TO-DATE
+> Task :TMessagesProj_App:generateAfatReleaseStringResourceIdsAsset UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_App:compressAfatReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_App:checkBundleAfatReleaseAarMetadata UP-TO-DATE
+> Task :TMessagesProj_App:processBundleAfatReleaseMainManifest UP-TO-DATE
+> Task :TMessagesProj_App:processBundleAfatReleaseManifest UP-TO-DATE
+> Task :TMessagesProj_App:processBundleAfatReleaseManifestForPackage UP-TO-DATE
+> Task :TMessagesProj_App:processBundleAfatReleaseResources UP-TO-DATE
+> Task :TMessagesProj_App:mergeBundleAfatReleaseJavaResource UP-TO-DATE
+> Task :TMessagesProj_App:generateBundleAfatReleaseLottieMeta UP-TO-DATE
+> Task :TMessagesProj_App:generateBundleAfatReleaseStringResourceIdsAsset UP-TO-DATE
+> Task :TMessagesProj_App:mergeBundleAfatReleaseAssets UP-TO-DATE
+> Task :TMessagesProj_App:compressBundleAfatReleaseAssets UP-TO-DATE
+> Task :TMessagesProj:bundleLibRuntimeToJarRelease
+> Task :TMessagesProj:bundleLibCompileToJarRelease
+> Task :TMessagesProj_App:compileAfatReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_App:mergeAfatReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_App:compileBundleAfatReleaseJavaWithJavac UP-TO-DATE
+> Task :TMessagesProj_App:mergeBundleAfatReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :TMessagesProj_App:expandAfatReleaseArtProfileWildcards
+> Task :TMessagesProj_App:expandBundleAfatReleaseArtProfileWildcards
+> Task :TMessagesProj_App:minifyAfatReleaseWithR8
+> Task :TMessagesProj_App:convertShrunkResourcesToBinaryAfatRelease UP-TO-DATE
+> Task :TMessagesProj_App:optimizeAfatReleaseResources UP-TO-DATE
+> Task :TMessagesProj_App:l8DexDesugarLibAfatRelease
+> Task :TMessagesProj_App:compileAfatReleaseArtProfile
+> Task :TMessagesProj_App:packageAfatRelease
+> Task :TMessagesProj_App:createAfatReleaseApkListingFileRedirect UP-TO-DATE
+> Task :TMessagesProj_App:assembleAfatRelease
+> Task :TMessagesProj_App:minifyBundleAfatReleaseWithR8
+> Task :TMessagesProj_App:convertShrunkResourcesToBinaryBundleAfatRelease UP-TO-DATE
+> Task :TMessagesProj_App:optimizeBundleAfatReleaseResources UP-TO-DATE
+> Task :TMessagesProj_App:l8DexDesugarLibBundleAfatRelease
+> Task :TMessagesProj_App:compileBundleAfatReleaseArtProfile
+> Task :TMessagesProj_App:packageBundleAfatRelease
+> Task :TMessagesProj_App:createBundleAfatReleaseApkListingFileRedirect UP-TO-DATE
+> Task :TMessagesProj_App:assembleBundleAfatRelease
+> Task :TMessagesProj_App:assembleRelease
+
+[Incubating] Problems report is available at: file:///root/tg-client-code/telegram-src/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 6m 27s
+385 actionable tasks: 18 executed, 367 up-to-date

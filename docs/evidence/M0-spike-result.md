@@ -8,7 +8,7 @@
 | api_id / api_hash | 官方源码 `BuildVars.java` 内置的那对（APP_ID = 4） |
 | 测试号码 | +44 7***95（用户本人自有号码，已脱敏） |
 | 工具 | Python 3.11 + Telethon 1.45.0（TL layer 含 `allow_app_hash`） |
-| 脚本 | `spike-probe/probe_sentcode.py` |
+| 脚本 | `tools/probe/probe_sentcode.py` |
 
 ## 实验一：`auth.sendCode`（验证码通道）
 
@@ -87,7 +87,7 @@ RESULT: LoginToken
 ## 复现命令
 
 ```bash
-cd /root/tg-client-docs/spike-probe && . .venv/bin/activate
+cd tools/probe && . .venv/bin/activate
 TG_API_ID=4 TG_API_HASH=<见源码 BuildVars> TG_PHONE=<你的号码> \
   python3 probe_sentcode.py --mode qr
 ```

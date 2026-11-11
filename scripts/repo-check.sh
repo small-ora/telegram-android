@@ -30,14 +30,14 @@ else
   bad "以下文件不应被跟踪："; echo "$TRACKED_BAD" | head -20
 fi
 
-BIG="$(git ls-files -z | xargs -0 -r du -k 2>/dev/null | awk '$1 > 5120 {print $2}' | head -10)"
+BIG="$(git ls-files -z -- docs scripts tools patches | xargs -0 -r du -k 2>/dev/null | awk '$1 > 5120 {print $2}' | head -10)"
 if [ -z "$BIG" ]; then
-  ok "无 >5MB 的已跟踪文件"
+  ok "本仓库维护的文档/脚本/补丁中无 >5MB 文件"
 else
-  bad "发现 >5MB 的已跟踪文件："; echo "$BIG"
+  bad "发现 >5MB 文件（docs/scripts/tools/patches）："; echo "$BIG"
 fi
 
-LEAK="$(grep -rInE 'ghp_[A-Za-z0-9]{20,}|github_pat_|-----BEGIN (RSA|OPENSSH|EC) PRIVATE KEY-----' docs scripts tools 2>/dev/null || true)"
+LEAK="$(grep -rInE --exclude=repo-check.sh 'ghp_[A-Za-z0-9]{20,}|github_pat_|-----BEGIN (RSA|OPENSSH|EC) PRIVATE KEY-----' docs scripts tools 2>/dev/null || true)"
 if [ -z "$LEAK" ]; then
   ok "docs/scripts/tools 中未发现疑似密钥"
 else

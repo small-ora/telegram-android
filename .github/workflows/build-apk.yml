@@ -136,6 +136,7 @@ jobs:
 
           > 非官方客户端，与 Telegram 官方无关联；源码以 GPLv2 发布，见仓库 LICENSE。
           EOF
+          sed -i 's/^ *//' release-notes.md   # 去掉 YAML 块缩进，避免 Markdown 被当成代码块
           gh release create "$TAG" "$APK" "$APK.sha256" \
             --title "Telegram ${VER} 自用版（扫码登录 + 去广告）" \
             --notes-file release-notes.md

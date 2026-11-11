@@ -49,7 +49,7 @@
 
 | 类别 | 当前定义 |
 |---|---|
-| `VALIDATION_QUICK` | Spike 阶段：`python3 spike-probe/probe_sentcode.py` 退出码 0 且输出 `RESULT:` 行 |
+| `VALIDATION_QUICK` | Spike 阶段：`python3 tools/probe/probe_sentcode.py` 退出码 0 且输出 `RESULT:` 行 |
 | `VALIDATION_FULL` | 构建阶段：`./gradlew :TMessagesProj_App:assembleRelease` 退出码 0 且产出 APK |
 | `DIFF_CMD` | 有 git 后：`git diff <BASE>..HEAD` |
 | `CHECKPOINT` | 有 git 后：本地提交，一主题一 commit |

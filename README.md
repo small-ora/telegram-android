@@ -13,7 +13,7 @@
 
 - 上游基线：`DrKLO/Telegram` 13.2.2（commit `21f7d109`，2026-11-12，已同步；上一版基线 13.2.1 `7be672e`），升级方式见 [docs/UPSTREAM-SYNC.md](docs/UPSTREAM-SYNC.md)；
 - 改动分支：`feat/no-sms-login-no-ads`（4 个代码 commit，均为小范围改动）；
-- 构建：`assembleDebug` / `assembleRelease` 均已通过（JDK 17 + SDK 36 + NDK 27.2）；证据见 [docs/evidence/](docs/evidence/)；
+- 构建：本地 Java 编译（退出码 0）与 GitHub Actions 的 release 构建均通过（afat 风味；JDK 17 + SDK 36 + NDK 27.2）；证据见 [docs/evidence/](docs/evidence/)；
 - 真机：扫码登录（含 2FA）、去广告已验证通过，记录见 [docs/evidence/S7-realtime-validation.md](docs/evidence/S7-realtime-validation.md)。
 
 ## 本分支的改动

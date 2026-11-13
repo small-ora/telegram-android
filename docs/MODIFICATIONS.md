@@ -19,7 +19,7 @@
 
 ## 1. 修改清单
 
-分支：`feat/no-sms-login-no-ads`，共 4 个代码提交（rebase 后为 `7be672e..HEAD`；提交号因 rebase 重写，内容等价）。
+分支：`feat/no-sms-login-no-ads`，共 4 个代码提交（rebase 后为 `21f7d109..HEAD`；提交号因 rebase 重写，内容等价）。
 
 | # | 提交 | 主题 | 修改文件 |
 |---|---|---|---|
@@ -28,11 +28,11 @@
 | 3 | `adf0c7d` | 新增扫码登录（新设备侧） | `LoginActivity.java`、`res/values/strings.xml` |
 | 4 | `c6949ed` | 二维码页尺寸修复 + 扫码链路错误日志 | `LoginActivity.java` |
 
-查看完整差异：
+查看完整差异（只看代码路径，排除上游同步本身）：
 
 ```bash
-git diff 7be672e..HEAD --stat
-git diff 7be672e..HEAD
+git diff 21f7d109..HEAD --stat -- TMessagesProj TMessagesProj_App
+git diff 21f7d109..HEAD -- TMessagesProj TMessagesProj_App
 git show <commit>
 ```
 
@@ -57,13 +57,17 @@ public static final boolean HIDE_SPONSORED = true;
 - 改为 `false` 即恢复官方广告行为（无需改动其他文件）；
 - 该开关是 `final` 常量，修改后需重新编译。
 
-### 2.1 与上游 13.2.1 的关系（2026-11-11 同步后）
+### 2.1 与上游 13.2.2 的关系（2026-11-13 同步后）
 
-- 上游 13.2.1 自身新增了「按会话隐藏赞助消息」的官方开关（`ChatActivity.OPTION_HIDE_SPONSORED_MESSAGE`），
-  并在主题系统引入 `ThemeBind`；本项目 `HIDE_SPONSORED` 仍是**全局强制**开关，二者不冲突。
-- 同步方式为 rebase 到 `upstream/master`（`7be672e`），只有一个 import 冲突（上游新增 FPNV、我们新增 zxing 二维码 import），
-  已按「保留双方」解决；扫码登录/去广告的逻辑未改写。
-- 验证：`compileAfatReleaseJavaWithJavac` 退出码 0；CI 构建与 Release 见 `docs/evidence/UPGRADE-13.2.1-20261111.md`。
+- 上游 13.2.1 新增了官方「按会话隐藏赞助消息」开关（`ChatActivity.OPTION_HIDE_SPONSORED_MESSAGE`）
+  与主题系统 `ThemeBind`；本项目 `HIDE_SPONSORED` 仍是**全局强制**开关，二者不冲突。
+- 同步方式为 rebase 到 `upstream/master`：13.2.1（`7be672e`，2026-11-11）时仅 1 处 import 冲突
+  （上游 FPNV vs 本项目 zxing），按「保留双方」解决；13.2.2（`21f7d109`，2026-11-13）无冲突，
+  16 个本地提交全部重放成功。扫码登录/去广告逻辑未改写。
+- 13.2.2 起 `TMessagesProj/jni/twidget/{twidget,widget-sandbox}` 由源码目录改为 git submodule，
+  native 构建通过 CMake target 引用；同步后需 `git submodule sync --recursive && git submodule update --init --recursive`。
+- 验证：13.2.2 上 `compileAfatReleaseJavaWithJavac` 退出码 0；CI 构建与 Release 见
+  `docs/evidence/INSTALL-TESTONLY-FIX-20261113.md`、`docs/evidence/UPGRADE-13.2.1-20261111.md`。
 
 ## 3. 改动二：扫码登录（新设备侧）
 
@@ -107,8 +111,8 @@ grep -n 'HIDE_SPONSORED' TMessagesProj/src/main/java/org/telegram/messenger/Buil
 grep -n 'VIEW_QR\|exportLoginToken\|LoginActivityQrView' \
   TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java | head
 
-# 相对基线的完整差异（应有 7 个文件、约 +450/−14）
-git diff 7be672e..HEAD --stat
+# 相对基线的完整差异（只看代码路径：应为 7 个文件、+437/−5）
+git diff 21f7d109..HEAD --stat -- TMessagesProj TMessagesProj_App
 ```
 
 ## 6. 相关文档

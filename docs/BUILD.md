@@ -48,6 +48,13 @@ export ANDROID_SDK_ROOT=/opt/android-sdk
 等价的原始命令：
 
 ```bash
+# debug（afat 风味；包名带 .beta，可与官方版共存）
+./gradlew :TMessagesProj_App:assembleAfatDebug \
+  -Pandroid.injected.build.abi=arm64-v8a \
+  -Pandroid.injected.testOnly=false \
+  -Dorg.gradle.jvmargs=-Xmx4g --max-workers=6 --console=plain
+
+# release（afat 风味；沿用仓库自带 release.keystore 签名）
 ./gradlew :TMessagesProj_App:assembleAfatRelease \
   -Pandroid.injected.build.abi=arm64-v8a \
   -Pandroid.injected.testOnly=false \
@@ -78,7 +85,7 @@ set -o pipefail
 ./scripts/build-debug.sh > /tmp/build.log 2>&1
 echo "exit=$?"
 grep -E 'BUILD SUCCESSFUL|BUILD FAILED' /tmp/build.log
-ls -lh TMessagesProj_App/build/outputs/apk/debug/*.apk
+ls -lh TMessagesProj_App/build/outputs/apk/afat/debug/*.apk
 ```
 
 判据：退出码 0 且日志出现 `BUILD SUCCESSFUL`。

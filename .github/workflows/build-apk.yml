@@ -101,15 +101,23 @@ jobs:
 
           BT="$ANDROID_HOME/build-tools/36.0.0"
 
-          # 门禁 1：APK 不能带 android:testOnly，否则手机端点击安装会直接失败
-          if "$BT/aapt2" dump xmltree --file AndroidManifest.xml "$APK" | grep -q 'testOnly'; then
+          # 门禁 1：APK 不能带 android:testOnly="true"，否则手机端点击安装会直接失败
+          # （只匹配值为 true；显式 testOnly=false 时该属性不存在或为 false，不应误拦）
+          if "$BT/aapt2" dump xmltree --file AndroidManifest.xml "$APK" | grep -qE 'testOnly\(0x[0-9a-f]+\)=true'; then
             echo "❌ APK 被标记为 android:testOnly=true，手机端将无法安装（检查 -Pandroid.injected.testOnly=false）"
             exit 1
           fi
           echo "✅ 清单无 testOnly，可正常安装"
 
-          # 门禁 2：签名有效（与历史 Release 同一证书，可覆盖升级）
-          "$BT/apksigner" verify --print-certs "$APK"
+          # 门禁 2：签名有效，且必须是历史 Release 使用的同一张证书（否则老用户无法覆盖升级）
+          EXPECTED_CERT="a08d7dc323ddf71ef3201944397e0d3cce7d40847263e11f328b68bbe19229ab"
+          CERTS="$("$BT/apksigner" verify --print-certs "$APK")"
+          echo "$CERTS" | grep -E 'Signer #1 certificate (DN|SHA-256 digest)'
+          if ! echo "$CERTS" | grep -Fq "SHA-256 digest: $EXPECTED_CERT"; then
+            echo "❌ 签名证书与历史 Release 不一致（期望 SHA-256 $EXPECTED_CERT），覆盖升级会失败"
+            exit 1
+          fi
+          echo "✅ 签名证书与历史 Release 一致"
 
           VER="$(grep '^APP_VERSION_NAME=' gradle.properties | cut -d= -f2)"
           CODE="$(grep '^APP_VERSION_CODE=' gradle.properties | cut -d= -f2)"

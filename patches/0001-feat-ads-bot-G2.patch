@@ -1,4 +1,4 @@
-From 91da4a6de561361cb244a849de634aba11440853 Mon Sep 17 00:00:00 2001
+From e1da1f8a5da69325bd03017279c826cd864e954e Mon Sep 17 00:00:00 2001
 From: dsh-agent <agent@local>
 Date: Mon, 2 Nov 2026 09:34:28 +0800
 Subject: [PATCH 1/4] =?UTF-8?q?feat(ads):=20=E5=85=B3=E9=97=AD=E9=A2=91?=
@@ -40,10 +40,10 @@ index ca821813f..5b6d27fb5 100644
      public static boolean SUPPORTS_PASSKEYS = true;
      // the second main tab: News, or Contacts as before them
 diff --git a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
-index 9d0077ffc..2e801484e 100644
+index ec7683573..d59460d87 100644
 --- a/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
 +++ b/TMessagesProj/src/main/java/org/telegram/messenger/MessagesController.java
-@@ -21724,6 +21724,9 @@ public class MessagesController extends BaseController implements NotificationCe
+@@ -21727,6 +21727,9 @@ public class MessagesController extends BaseController implements NotificationCe
      }
  
      public SponsoredMessagesInfo getSponsoredMessages(long dialogId) {
@@ -75,10 +75,10 @@ index 46ea8f004..f5724fbc0 100644
              } else {
                  final TLRPC.TL_contacts_getSponsoredPeers req = new TLRPC.TL_contacts_getSponsoredPeers();
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-index 1ed161bf7..055342262 100644
+index a54b1341e..971469473 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/ChatActivity.java
-@@ -25759,7 +25759,7 @@ public class ChatActivity extends BaseFragment implements
+@@ -25775,7 +25775,7 @@ public class ChatActivity extends BaseFragment implements
      private Pattern sponsoredUrlPattern;
      private MessageObject botSponsoredMessage;
      private void addSponsoredMessages(boolean animated) {

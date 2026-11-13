@@ -2,7 +2,7 @@
 
 本仓库是 [DrKLO/Telegram](https://github.com/DrKLO/Telegram)（GPLv2）的 fork。
 
-> **当前状态（2026-11-11）**：已同步到官方 **13.2.1**（`7be672e`，7291）。下次官方发版时按本文流程操作即可。
+> **当前状态（2026-11-13）**：已同步到官方 **13.2.2**（`21f7d109`，7303）。下次官方发版时按本文流程操作即可。
 我们的改动全部集中在 4 个小组提交里，做法是：**始终让 `feat/no-sms-login-no-ads` 分支
 「rebase 到官方最新版本 + 重放我们的 4 个 commit」**，而不是把官方更新 merge 进来。
 这样历史始终是「官方版本 + 一层薄补丁」，冲突面最小、回滚最简单。
@@ -110,12 +110,13 @@ git diff feat/no-sms-login-no-ads..HEAD --stat
 git push --force-with-lease origin feat/no-sms-login-no-ads
 
 # 打标签触发 GitHub Actions 自动构建并发 Release（APK 由 CI 产出）
-git tag v13.2.1
-git push origin v13.2.1
+git tag v13.2.2
+git push origin v13.2.2
 ```
 
-> 标签只需在发布时打；日常同步不必打标签。CI 构建约 30–60 分钟，完成后在仓库
-> **Releases** 页面下载对应版本 APK（详见 `docs/BUILD.md` §6）。
+> 标签只需在发布时打；日常同步不必打标签。CI 构建约 20–40 分钟，完成后在仓库
+> **Releases** 页面下载对应版本 APK（详见 `docs/BUILD.md` §6）。CI 会强制校验 APK 不带
+> `android:testOnly`（否则手机端无法直接安装），校验不过不会发 Release。
 
 > rebase 会重写历史，普通 push 会被拒绝；`--force-with-lease` 比 `-f` 安全（远端只允许快进到本地的预期状态）。
 
@@ -135,5 +136,6 @@ git push origin v13.2.1
 | `git rebase` 提示 `unstaged changes` | 先提交或 stash；升级必须在干净工作区进行 |
 | 冲突里出现 `.ai/` 文档 | 旧版升级可能残留 `.ai/`；当前版本已把文档统一到 `docs/`，直接删除 `.ai/` 冲突项 |
 | 构建提示 `local.properties` 缺失 | 见 `docs/BUILD.md` §2 |
-| 不知道官方最新版是哪个 | `git fetch upstream && git log --oneline -3 upstream/master`；提交信息形如 `update to 13.2.1 (7291)`。官方 11.x 之后已不再打 tag，统一用 `upstream/master` |
+| 同步后 native 编译报缺文件（`twidget`/`widget-sandbox`） | 13.2.2 起这两个目录改为 git submodule：执行 `git submodule sync --recursive && git submodule update --init --recursive` |
+| 不知道官方最新版是哪个 | `git fetch upstream && git log --oneline -3 upstream/master`；提交信息形如 `update to 13.2.2 (7303)`。官方 11.x 之后已不再打 tag，统一用 `upstream/master` |
 | fork 页面提示 behind upstream | 属正常——我们的 feature 分支基于某个官方 tag；需要升级时按本文流程操作 |

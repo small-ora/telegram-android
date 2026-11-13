@@ -1,4 +1,4 @@
-From adf0c7dba605a73b087c5e68e05e93500cf6b493 Mon Sep 17 00:00:00 2001
+From cd0537e81b0105e4235f55ad6786dd0045a2c337 Mon Sep 17 00:00:00 2001
 From: dsh-agent <agent@local>
 Date: Mon, 2 Nov 2026 09:50:39 +0800
 Subject: [PATCH 3/4] =?UTF-8?q?feat(login):=20=E6=96=B0=E8=AE=BE=E5=A4=87?=
@@ -25,7 +25,7 @@ Content-Transfer-Encoding: 8bit
  2 files changed, 384 insertions(+), 3 deletions(-)
 
 diff --git a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
-index 36488933c..f5003444a 100644
+index dac59c13a..12264a17d 100644
 --- a/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 +++ b/TMessagesProj/src/main/java/org/telegram/ui/LoginActivity.java
 @@ -25,6 +25,7 @@ import android.animation.ValueAnimator;
@@ -166,7 +166,7 @@ index 36488933c..f5003444a 100644
          }
  
          @Override
-@@ -10702,4 +10743,331 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
+@@ -10696,4 +10737,331 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
          clearSheets();
          parentLayout = null;
      }
@@ -499,10 +499,10 @@ index 36488933c..f5003444a 100644
 +    }
  }
 diff --git a/TMessagesProj/src/main/res/values/strings.xml b/TMessagesProj/src/main/res/values/strings.xml
-index 9f56ca618..2cc3ea3db 100644
+index e4f8cf67b..94ba3bbe1 100644
 --- a/TMessagesProj/src/main/res/values/strings.xml
 +++ b/TMessagesProj/src/main/res/values/strings.xml
-@@ -2767,6 +2767,19 @@
+@@ -2768,6 +2768,19 @@
      <string name="AuthAnotherClientInfo2">Run Telegram Desktop to get the QR code.</string>
      <string name="AuthAnotherClientInfo3">Scan the QR code to connect your account.</string>
      <string name="AuthAnotherClientUrl">This code can be used to allow someone to log in to your Telegram account.\n\nTo confirm Telegram login, please go to Settings &gt; Devices &gt; Scan QR and scan the code.</string>

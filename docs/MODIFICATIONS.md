@@ -23,10 +23,10 @@
 
 | # | 提交 | 主题 | 修改文件 |
 |---|---|---|---|
-| 1 | `91da4a6` | 去广告：频道/Bot 内赞助消息 + 搜索推荐频道 | `BuildVars.java`、`MessagesController.java`、`ChatActivity.java`、`DialogsSearchAdapter.java` |
-| 2 | `3ed45d7` | 去广告：视频/图片查看器贴片 | `video/VideoAds.java` |
-| 3 | `adf0c7d` | 新增扫码登录（新设备侧） | `LoginActivity.java`、`res/values/strings.xml` |
-| 4 | `c6949ed` | 二维码页尺寸修复 + 扫码链路错误日志 | `LoginActivity.java` |
+| 1 | `e1da1f8a5` | 去广告：频道/Bot 内赞助消息 + 搜索推荐频道 | `BuildVars.java`、`MessagesController.java`、`ChatActivity.java`、`DialogsSearchAdapter.java` |
+| 2 | `090962caf` | 去广告：视频/图片查看器贴片 | `video/VideoAds.java` |
+| 3 | `cd0537e81` | 新增扫码登录（新设备侧） | `LoginActivity.java`、`res/values/strings.xml` |
+| 4 | `4ac27f8b0` | 二维码页尺寸修复 + 扫码链路错误日志 | `LoginActivity.java` |
 
 查看完整差异（只看代码路径，排除上游同步本身）：
 

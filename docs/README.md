@@ -46,6 +46,7 @@ docs/
 │   ├── REPO-RESTRUCTURE-20261111.md # 仓库合并与整理记录（2026-11-11）
 │   ├── GITHUB-PUBLISH-20261111.md # GitHub 发布与 CI 构建记录（2026-11-11）
 │   ├── UPGRADE-13.2.1-20261111.md # 同步官方 13.2.1 记录（2026-11-11）
+│   ├── INSTALL-TESTONLY-FIX-20261113.md # 安装失败根因（testOnly）与修复、v13.2.2 发布验证（2026-11-13）
 │   ├── artifacts-SHA256SUMS.txt # 本地 APK 产物的校验和存档
 │   ├── logs/                 # 每次构建的完整日志
 │   ├── screenshots/          # 真机截图

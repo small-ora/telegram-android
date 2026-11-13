@@ -20,10 +20,10 @@
 
 | 提交 | 内容 | 涉及文件 |
 |---|---|---|
-| `ca4085c` | 去广告（频道/Bot 赞助消息 + 搜索推荐频道） | `BuildVars`、`MessagesController`、`ChatActivity`、`DialogsSearchAdapter` |
-| `bc9e3c6` | 去广告（视频/图片查看器贴片） | `video/VideoAds.java` |
-| `de96d77` | 扫码登录（二维码页、轮询、DC 迁移、2FA 衔接） | `LoginActivity`、`res/values/strings.xml` |
-| `1437581` | 二维码页尺寸修复 + 扫码链路错误日志 | `LoginActivity` |
+| `e1da1f8a5` | 去广告（频道/Bot 赞助消息 + 搜索推荐频道） | `BuildVars`、`MessagesController`、`ChatActivity`、`DialogsSearchAdapter` |
+| `090962caf` | 去广告（视频/图片查看器贴片） | `video/VideoAds.java` |
+| `cd0537e81` | 扫码登录（二维码页、轮询、DC 迁移、2FA 衔接） | `LoginActivity`、`res/values/strings.xml` |
+| `4ac27f8b0` | 二维码页尺寸修复 + 扫码链路错误日志 | `LoginActivity` |
 
 设计、代码定位与验证过程见 [docs/spec/](docs/spec/) 与 [docs/recon/](docs/recon/)；
 GPL 要求的修改记录见 [docs/MODIFICATIONS.md](docs/MODIFICATIONS.md)。

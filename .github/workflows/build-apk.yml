@@ -88,13 +88,14 @@ jobs:
       - name: 校验产物（签名 / 版本 / 非 testOnly）并计算校验和
         id: apk
         run: |
-          # 只取 afat 风味（versionCode = 版本号×10+9），避免误选 bundleAfat（×10+1）造成降级安装失败
-          APK="$(find TMessagesProj_App/build/outputs/apk -path '*afat/release/*.apk' | sort | head -1)"
+          # 注意：带 -Pandroid.injected.build.abi 时 AGP 把 APK 输出到 build/intermediates/apk/（IDE 注入构建），
+          # 不带时才在 build/outputs/apk/；两处都要找，且只取 afat 风味（versionCode=版本号×10+9）。
+          APK="$(find TMessagesProj_App/build/outputs/apk TMessagesProj_App/build/intermediates/apk \
+                   -path '*afat/release/*.apk' 2>/dev/null | sort | head -1)"
           if [ -z "$APK" ]; then
-            APK="$(find TMessagesProj_App/build/outputs/apk -name '*.apk' -path '*release*' | sort | head -1)"
-          fi
-          if [ -z "$APK" ]; then
-            echo "❌ 未找到 release APK"
+            echo "候选 APK（诊断用）："
+            find TMessagesProj_App/build -name '*.apk' 2>/dev/null | head -20
+            echo "❌ 未找到 afat/release APK"
             exit 1
           fi
           echo "APK=$APK"

@@ -34,9 +34,11 @@ if [ -z "$AAPT2" ] || [ ! -x "$AAPT2" ]; then
   echo "❌ 未找到 aapt2（ANDROID_HOME=$ANDROID_HOME），无法校验安装包" >&2
   exit 1
 fi
-APK="$(find TMessagesProj_App/build/outputs/apk -path '*afat/release/*.apk' | sort | head -1)"
+APK="$(find TMessagesProj_App/build/outputs/apk TMessagesProj_App/build/intermediates/apk \
+         -path '*afat/release/*.apk' 2>/dev/null | sort | head -1)"
 if [ -z "$APK" ]; then
-  echo "❌ 未找到 afat/release APK，无法校验安装包" >&2
+  echo "❌ 未找到 afat/release APK，无法校验安装包（候选：）" >&2
+  find TMessagesProj_App/build -name '*.apk' 2>/dev/null | head -10 >&2
   exit 1
 fi
 if "$AAPT2" dump xmltree --file AndroidManifest.xml "$APK" | grep -qE 'testOnly\(0x[0-9a-f]+\)=true'; then

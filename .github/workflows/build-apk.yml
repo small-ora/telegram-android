@@ -73,24 +73,54 @@ jobs:
           restore-keys: |
             gradle-${{ runner.os }}-
 
-      - name: 构建 release APK（arm64-v8a）
+      - name: 构建 release APK（afat / arm64-v8a，可正常安装）
         run: |
           set -o pipefail
-          ./gradlew :TMessagesProj_App:assembleRelease \
+          # 注意：-Pandroid.injected.build.abi 是 AGP 的 IDE 注入参数，副作用是给 APK 打上
+          # android:testOnly=true；手机系统安装器会拒装（只提示"安装失败/应用未安装"，无详情）。
+          # 必须显式 -Pandroid.injected.testOnly=false 关闭（实测：清单与不注入时逐字节一致）。
+          ./gradlew :TMessagesProj_App:assembleAfatRelease \
             -Pandroid.injected.build.abi=arm64-v8a \
+            -Pandroid.injected.testOnly=false \
             -Dorg.gradle.jvmargs=-Xmx4g \
             --max-workers=4 --console=plain --no-daemon 2>&1 | tee build.log
 
-      - name: 校验产物并计算校验和
+      - name: 校验产物（签名 / 版本 / 非 testOnly）并计算校验和
         id: apk
         run: |
-          APK="$(find TMessagesProj_App/build -name '*.apk' -path '*release*' | sort | head -1)"
+          # 只取 afat 风味（versionCode = 版本号×10+9），避免误选 bundleAfat（×10+1）造成降级安装失败
+          APK="$(find TMessagesProj_App/build/outputs/apk -path '*afat/release/*.apk' | sort | head -1)"
+          if [ -z "$APK" ]; then
+            APK="$(find TMessagesProj_App/build/outputs/apk -name '*.apk' -path '*release*' | sort | head -1)"
+          fi
           if [ -z "$APK" ]; then
             echo "❌ 未找到 release APK"
             exit 1
           fi
+          echo "APK=$APK"
+
+          BT="$ANDROID_HOME/build-tools/36.0.0"
+
+          # 门禁 1：APK 不能带 android:testOnly，否则手机端点击安装会直接失败
+          if "$BT/aapt2" dump xmltree --file AndroidManifest.xml "$APK" | grep -q 'testOnly'; then
+            echo "❌ APK 被标记为 android:testOnly=true，手机端将无法安装（检查 -Pandroid.injected.testOnly=false）"
+            exit 1
+          fi
+          echo "✅ 清单无 testOnly，可正常安装"
+
+          # 门禁 2：签名有效（与历史 Release 同一证书，可覆盖升级）
+          "$BT/apksigner" verify --print-certs "$APK"
+
           VER="$(grep '^APP_VERSION_NAME=' gradle.properties | cut -d= -f2)"
           CODE="$(grep '^APP_VERSION_CODE=' gradle.properties | cut -d= -f2)"
+          EXPECT_CODE=$((CODE * 10 + 9))   # afat 风味的 versionCode
+          BADGING="$("$BT/aapt2" dump badging "$APK")"
+          echo "$BADGING" | grep -E "^package:|^sdkVersion|^targetSdkVersion|^native-code"
+          if ! echo "$BADGING" | grep -q "versionCode='$EXPECT_CODE'"; then
+            echo "❌ versionCode 不是预期的 $EXPECT_CODE（可能选错风味或版本号）"
+            exit 1
+          fi
+
           NAME="tg-client-${VER}-${CODE}-arm64-release.apk"
           cp "$APK" "$NAME"
           sha256sum "$NAME" | tee "$NAME.sha256"
@@ -131,9 +161,13 @@ jobs:
 
           - 包名 \`org.telegram.messenger\`，与官方版冲突：首次安装需先卸载官方 Telegram（数据在云端，不丢）；
           - 与历史 Release 使用同一签名（仓库自带 keystore），可直接覆盖升级；
-          - 仅包含 arm64-v8a（现代 Android 手机）；
+          - 主库仅含 arm64-v8a（现代 Android 手机）；
           - 校验：\`sha256sum ${APK}\`（见同名 .sha256 文件）。
 
+          > ⚠️ v13.1.1 / v13.2.1 的 Release APK 曾被 AGP 注入构建参数标记为 \`android:testOnly=true\`，
+          > 在手机上直接点击安装会失败（只提示"安装失败/应用未安装"，无详情）；从本版本起该问题已修复，
+          > 可直接下载安装。旧版本仍保留在 Release 列表中，但只能通过 \`adb install -t\` 安装。
+          >
           > 非官方客户端，与 Telegram 官方无关联；源码以 GPLv2 发布，见仓库 LICENSE。
           EOF
           sed -i 's/^ *//' release-notes.md   # 去掉 YAML 块缩进，避免 Markdown 被当成代码块

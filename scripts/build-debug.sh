@@ -8,12 +8,15 @@ cd "$REPO_ROOT"
 mkdir -p artifacts/logs
 LOG="artifacts/logs/build-debug-$(date +%Y%m%d-%H%M%S).log"
 
-echo "==> ./gradlew :TMessagesProj_App:assembleDebug（arm64-v8a）"
+echo "==> ./gradlew :TMessagesProj_App:assembleDebug（arm64-v8a，非 testOnly）"
 echo "==> 日志: $LOG"
 
 set +e
+# 同 build-release.sh：显式关闭 AGP 注入构建带来的 android:testOnly=true，
+# 否则手机端无法直接安装（只能 adb install -t）。
 ./gradlew :TMessagesProj_App:assembleDebug \
   -Pandroid.injected.build.abi=arm64-v8a \
+  -Pandroid.injected.testOnly=false \
   -Dorg.gradle.jvmargs=-Xmx4g --max-workers=6 --console=plain 2>&1 | tee "$LOG"
 STATUS=${PIPESTATUS[0]}
 set -e
